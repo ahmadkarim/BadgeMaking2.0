@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" initialViewController="2">
     <dependencies>
-        <deployment version="1296" defaultVersion="1296" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment version="1296" defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--View Controller - FirstViewController-->
@@ -13,8 +13,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="First_Scene.png" id="FVw-wu-ejT">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="FVw-wu-ejT">
+                                <rect key="frame" x="0.0" y="0.0" width="460" height="446"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3qv-dQ-QUc">
@@ -32,6 +32,20 @@
                                     <segue destination="3yN-JE-27y" kind="modal" id="zGw-MI-Vwo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="99X-rf-G80">
+                                <rect key="frame" x="711" y="527" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Capture:" destination="2" eventType="touchUpInside" id="Bxs-J7-ghz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iiD-UL-Eg4">
+                                <rect key="frame" x="468" y="139" width="316" height="293"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -41,6 +55,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="CaptureButtonOutlet" destination="99X-rf-G80" id="bzS-WD-J4l"/>
+                        <outlet property="TestImage" destination="iiD-UL-Eg4" id="oFl-v6-eso"/>
+                        <outlet property="cameraImageView" destination="FVw-wu-ejT" id="HV8-Jh-yXq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
             </objects>
@@ -537,10 +556,6 @@
                                 <rect key="frame" x="353" y="234" width="240" height="214"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="XiB-1e-6kX" userLabel="Preview">
-                                <rect key="frame" x="32" y="108" width="1024" height="768"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ayh-7L-PjT">
                                 <rect key="frame" x="996" y="6" width="15" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -574,7 +589,6 @@
                         <outlet property="baseViewINSTRUMENT" destination="6ge-ic-1bd" id="B0T-mG-UxA"/>
                         <outlet property="baseViewLABEL" destination="2iq-CT-8D4" id="aMo-Tq-8TA"/>
                         <outlet property="firstView" destination="958-gb-1uF" id="MdU-pQ-VMt"/>
-                        <outlet property="previewView" destination="XiB-1e-6kX" id="H61-Pv-w8q"/>
                         <outlet property="textField" destination="bTc-VU-3ky" id="qhv-bY-Nb1"/>
                         <outlet property="textView" destination="XHd-Tc-tmH" id="yL0-yD-eMZ"/>
                     </connections>
@@ -633,7 +647,6 @@
         <image name="Color_Buttons_Red.png" width="102" height="103"/>
         <image name="Color_Buttons_White.png" width="100" height="98"/>
         <image name="Color_Buttons_Yellow.png" width="107" height="107"/>
-        <image name="First_Scene.png" width="1024" height="768"/>
         <image name="Grafix_Buttons_Dhol.png" width="102" height="102"/>
         <image name="Grafix_Buttons_Flute.png" width="118" height="104"/>
         <image name="Grafix_Buttons_Guitar.png" width="118" height="102"/>

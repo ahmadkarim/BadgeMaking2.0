@@ -60,6 +60,10 @@
 		17D11BA01621D45E008D7FBA /* photo 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9C1621D45E008D7FBA /* photo 3.png */; };
 		17D11BA11621D45E008D7FBA /* photo 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9D1621D45E008D7FBA /* photo 4.png */; };
 		17D11BA21621D45E008D7FBA /* photo 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9E1621D45E008D7FBA /* photo 5.png */; };
+		F5334F7B194663900087F4EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7A194663900087F4EE /* QuartzCore.framework */; };
+		F5334F7D194663AE0087F4EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7C194663AE0087F4EE /* CoreVideo.framework */; };
+		F5334F7F194663BA0087F4EE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7E194663BA0087F4EE /* CoreMedia.framework */; };
+		F5334F81194663CC0087F4EE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F80194663CC0087F4EE /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +127,10 @@
 		17D11B9C1621D45E008D7FBA /* photo 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 3.png"; sourceTree = "<group>"; };
 		17D11B9D1621D45E008D7FBA /* photo 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 4.png"; sourceTree = "<group>"; };
 		17D11B9E1621D45E008D7FBA /* photo 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 5.png"; sourceTree = "<group>"; };
+		F5334F7A194663900087F4EE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		F5334F7C194663AE0087F4EE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		F5334F7E194663BA0087F4EE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		F5334F80194663CC0087F4EE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5334F81194663CC0087F4EE /* AVFoundation.framework in Frameworks */,
+				F5334F7F194663BA0087F4EE /* CoreMedia.framework in Frameworks */,
+				F5334F7D194663AE0087F4EE /* CoreVideo.framework in Frameworks */,
+				F5334F7B194663900087F4EE /* QuartzCore.framework in Frameworks */,
 				17D11B761621CFA2008D7FBA /* UIKit.framework in Frameworks */,
 				17D11B781621CFA2008D7FBA /* Foundation.framework in Frameworks */,
 				17D11B7A1621CFA2008D7FBA /* CoreGraphics.framework in Frameworks */,
@@ -250,6 +262,10 @@
 		17D11B741621CFA2008D7FBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5334F80194663CC0087F4EE /* AVFoundation.framework */,
+				F5334F7E194663BA0087F4EE /* CoreMedia.framework */,
+				F5334F7C194663AE0087F4EE /* CoreVideo.framework */,
+				F5334F7A194663900087F4EE /* QuartzCore.framework */,
 				17D11B751621CFA2008D7FBA /* UIKit.framework */,
 				17D11B771621CFA2008D7FBA /* Foundation.framework */,
 				17D11B791621CFA2008D7FBA /* CoreGraphics.framework */,
