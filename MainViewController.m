@@ -545,7 +545,7 @@
      redband.bounds = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
      redband.position = CGPointMake(384, 510);
      */
-    [self.view.layer insertSublayer:self.previewLayer atIndex:3];   // Comment-out to hide preview layer
+    [self.view.layer insertSublayer:self.previewLayer atIndex:0];   // Comment-out to hide preview layer
     //  [self.view.layer insertSublayer:theLayer above:self.previewLayer];
     //  [self.view.layer insertSublayer:HW above:self.previewLayer];
     //  [self.view.layer insertSublayer:redband above:self.previewLayer];
@@ -586,7 +586,7 @@
     
     [self.captureSession stopRunning];
     
-    CGRect A=CGRectMake(300, 0, 300, 400);
+    CGRect A=CGRectMake(192,144, 640 , 480);
     // self.cameraImageView.image = self.cameraImage;
     self.cameraImageView.frame=A;
     self.cameraImageView.image = self.cameraImage;
