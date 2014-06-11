@@ -56,10 +56,6 @@
 		17D11B8F1621CFA2008D7FBA /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B8D1621CFA2008D7FBA /* MainStoryboard.storyboard */; };
 		17D11B921621CFA2008D7FBA /* AKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B911621CFA2008D7FBA /* AKViewController.m */; };
 		17D11B9A1621D0ED008D7FBA /* printViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B991621D0ED008D7FBA /* printViewController.m */; };
-		17D11B9F1621D45E008D7FBA /* photo 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9B1621D45E008D7FBA /* photo 2.png */; };
-		17D11BA01621D45E008D7FBA /* photo 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9C1621D45E008D7FBA /* photo 3.png */; };
-		17D11BA11621D45E008D7FBA /* photo 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9D1621D45E008D7FBA /* photo 4.png */; };
-		17D11BA21621D45E008D7FBA /* photo 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D11B9E1621D45E008D7FBA /* photo 5.png */; };
 		F5334F7B194663900087F4EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7A194663900087F4EE /* QuartzCore.framework */; };
 		F5334F7D194663AE0087F4EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7C194663AE0087F4EE /* CoreVideo.framework */; };
 		F5334F7F194663BA0087F4EE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7E194663BA0087F4EE /* CoreMedia.framework */; };
@@ -123,10 +119,6 @@
 		17D11B911621CFA2008D7FBA /* AKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKViewController.m; sourceTree = "<group>"; };
 		17D11B981621D0ED008D7FBA /* printViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printViewController.h; sourceTree = "<group>"; };
 		17D11B991621D0ED008D7FBA /* printViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = printViewController.m; sourceTree = "<group>"; };
-		17D11B9B1621D45E008D7FBA /* photo 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 2.png"; sourceTree = "<group>"; };
-		17D11B9C1621D45E008D7FBA /* photo 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 3.png"; sourceTree = "<group>"; };
-		17D11B9D1621D45E008D7FBA /* photo 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 4.png"; sourceTree = "<group>"; };
-		17D11B9E1621D45E008D7FBA /* photo 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo 5.png"; sourceTree = "<group>"; };
 		F5334F7A194663900087F4EE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5334F7C194663AE0087F4EE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		F5334F7E194663BA0087F4EE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -294,10 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				1718995216234CFD00603B8E /* MainView */,
-				17D11B9B1621D45E008D7FBA /* photo 2.png */,
-				17D11B9C1621D45E008D7FBA /* photo 3.png */,
-				17D11B9D1621D45E008D7FBA /* photo 4.png */,
-				17D11B9E1621D45E008D7FBA /* photo 5.png */,
 				17D11B7D1621CFA2008D7FBA /* bg2.0-Info.plist */,
 				17D11B7E1621CFA2008D7FBA /* InfoPlist.strings */,
 				17D11B811621CFA2008D7FBA /* main.m */,
@@ -336,7 +324,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = AK;
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ahmad Karim";
 				TargetAttributes = {
 					17D11B701621CFA2008D7FBA = {
@@ -371,10 +359,6 @@
 				17D11B8A1621CFA2008D7FBA /* Default@2x.png in Resources */,
 				17D11B8C1621CFA2008D7FBA /* Default-568h@2x.png in Resources */,
 				17D11B8F1621CFA2008D7FBA /* MainStoryboard.storyboard in Resources */,
-				17D11B9F1621D45E008D7FBA /* photo 2.png in Resources */,
-				17D11BA01621D45E008D7FBA /* photo 3.png in Resources */,
-				17D11BA11621D45E008D7FBA /* photo 4.png in Resources */,
-				17D11BA21621D45E008D7FBA /* photo 5.png in Resources */,
 				1718995116234AA900603B8E /* Start_Button.png in Resources */,
 				1718995416234D1200603B8E /* Bg.png in Resources */,
 				1718995616234DFE00603B8E /* Interface_Yellow_Base.png in Resources */,
@@ -474,6 +458,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8CCFB417-B78B-4768-B258-D10A99720B15";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
