@@ -36,10 +36,6 @@
     [textField removeFromSuperview];
     
     
-    
-    
-    
-    
     UIPinchGestureRecognizer *pinchRecognizer =[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchDetected:)];
     [self.view addGestureRecognizer:pinchRecognizer];
     self->textField.delegate=self;//making self a delegate of uitextfield
@@ -59,12 +55,13 @@
    // NSString *resultString = [[NSString alloc] initWithFormat: @"Pinch - scale = %f, velocity = %f",scale, velocity];
     
     NSLog(@"Pinch - scale = %f, velocity = %f",scale, velocity);
-       
+
     if (touchEnabled) {
         if ( (scale > 0.8) && (scale < 1.165) ) {
             newScale = scale;
            CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
             baseViewINSTRUMENT.transform = transform;
+             self.cameraImageView.transform=transform;
         }
     }
     
@@ -78,6 +75,53 @@
     
     
 }
+
+- (IBAction)ZoomIn:(UIButton *)sender {
+    
+    newScale += 0.1 ;
+    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+    self.cameraImageView.transform=transform;
+}
+
+- (IBAction)ZoomOut:(UIButton *)sender {
+    
+    newScale -= 0.1 ;
+    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+    self.cameraImageView.transform=transform;
+}
+
+
+- (IBAction)LeftButton:(UIButton *)sender {
+    
+    _x -= 10;
+    
+    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+}
+
+- (IBAction)RightButton:(UIButton *)sender {
+    _x += 10;
+    
+    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+    
+}
+
+- (IBAction)UpButton:(UIButton *)sender {
+    
+    _y -= 10;
+    
+    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+}
+
+- (IBAction)DownButton:(UIButton *)sender {
+    
+    _y += 10;
+    
+    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+}
+
+
+
+
 
 
 
@@ -154,6 +198,8 @@
 
 - (IBAction)Prints {
     
+    NSLog(@"Print Called");
+    
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
@@ -168,7 +214,7 @@
     
     // CGRect  printableRect=CGRectMake(0,0, 200, 200);
     
- 
+    [self.cameraImageView.image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
     
      //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      //   [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
@@ -202,7 +248,7 @@
     // NSLog(@"\n\n\n=========Printed sucessfull in loop");
     
   //  imagetoprint=image;
-   // imagetoprint= UIImageJPEGRepresentation(baseImage, 1.0);
+    imagetoprint= UIImageJPEGRepresentation(self.cameraImageView.image, 1.0);
    // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
     //newImage=[baseImage ]
     //CIImage * image;//=CFBridgingRelease(CFBridgingRetain(baseImage));
@@ -344,9 +390,9 @@
     
     
     
-    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
+ //   [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
      
-     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+//     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
     
@@ -616,6 +662,9 @@
     
     // [previewView setImage:previewImage];
     //  [self.view addSubview:previewView];
+    
+    _x = self.cameraImageView.center.x;
+    _y=self.cameraImageView.center.y;
     
     UIGraphicsEndImageContext();
 }

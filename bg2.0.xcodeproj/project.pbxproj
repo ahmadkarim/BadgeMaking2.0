@@ -16,6 +16,10 @@
 		171899D81625020000603B8E /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899D41625020000603B8E /* yellow.png */; };
 		171899DA16250E7E00603B8E /* Reset_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899D916250E7E00603B8E /* Reset_Button.png */; };
 		171899DC16251B3A00603B8E /* badgeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899DB16251B3A00603B8E /* badgeIcon.png */; };
+		172129D41961671C00E8565A /* morven strip.png in Resources */ = {isa = PBXBuildFile; fileRef = 172129D31961671C00E8565A /* morven strip.png */; };
+		17B11AEC1951838B005AD553 /* Start interface blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEB1951838B005AD553 /* Start interface blank.png */; };
+		17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AED19518391005AD553 /* Start BUTTON press.png */; };
+		17B11AF019518403005AD553 /* Start BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEF19518403005AD553 /* Start BUTTON.png */; };
 		17CADFD91660F7F70039590B /* First_Scene.png in Resources */ = {isa = PBXBuildFile; fileRef = 17CADFD81660F7F70039590B /* First_Scene.png */; };
 		17CADFDB1660F8400039590B /* Last Frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 17CADFDA1660F8400039590B /* Last Frame.png */; };
 		17D11B761621CFA2008D7FBA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17D11B751621CFA2008D7FBA /* UIKit.framework */; };
@@ -66,6 +70,10 @@
 		171899D41625020000603B8E /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow.png; sourceTree = "<group>"; };
 		171899D916250E7E00603B8E /* Reset_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reset_Button.png; sourceTree = "<group>"; };
 		171899DB16251B3A00603B8E /* badgeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgeIcon.png; sourceTree = "<group>"; };
+		172129D31961671C00E8565A /* morven strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "morven strip.png"; sourceTree = "<group>"; };
+		17B11AEB1951838B005AD553 /* Start interface blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start interface blank.png"; sourceTree = "<group>"; };
+		17B11AED19518391005AD553 /* Start BUTTON press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON press.png"; sourceTree = "<group>"; };
+		17B11AEF19518403005AD553 /* Start BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON.png"; sourceTree = "<group>"; };
 		17CADFD81660F7F70039590B /* First_Scene.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = First_Scene.png; sourceTree = "<group>"; };
 		17CADFDA1660F8400039590B /* Last Frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Last Frame.png"; sourceTree = "<group>"; };
 		17D11B711621CFA2008D7FBA /* bg2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bg2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +185,16 @@
 			name = Preview;
 			sourceTree = "<group>";
 		};
+		17B11AEA19518378005AD553 /* First Screen */ = {
+			isa = PBXGroup;
+			children = (
+				17B11AED19518391005AD553 /* Start BUTTON press.png */,
+				17B11AEF19518403005AD553 /* Start BUTTON.png */,
+				17B11AEB1951838B005AD553 /* Start interface blank.png */,
+			);
+			name = "First Screen";
+			sourceTree = "<group>";
+		};
 		17D11B661621CFA2008D7FBA = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +247,7 @@
 		17D11B7C1621CFA2008D7FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17B11AEA19518378005AD553 /* First Screen */,
 				F5B33386194900CA00D9043D /* MainViewNewVisuals */,
 				1718995216234CFD00603B8E /* MainView */,
 				17D11B7D1621CFA2008D7FBA /* bg2.0-Info.plist */,
@@ -253,6 +272,7 @@
 		F5B33387194901C200D9043D /* CollectiveStuff */ = {
 			isa = PBXGroup;
 			children = (
+				172129D31961671C00E8565A /* morven strip.png */,
 				F5B33388194901C200D9043D /* Arrow down button press.png */,
 				F5B33389194901C200D9043D /* Arrow down button.png */,
 				F5B3338A194901C200D9043D /* Arrow left button Press.png */,
@@ -337,6 +357,8 @@
 				17D11B881621CFA2008D7FBA /* Default.png in Resources */,
 				F5B333AE194901C200D9043D /* zoom out button press.png in Resources */,
 				17D11B8A1621CFA2008D7FBA /* Default@2x.png in Resources */,
+				17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */,
+				17B11AF019518403005AD553 /* Start BUTTON.png in Resources */,
 				17D11B8C1621CFA2008D7FBA /* Default-568h@2x.png in Resources */,
 				17D11B8F1621CFA2008D7FBA /* MainStoryboard.storyboard in Resources */,
 				F5B333AF194901C200D9043D /* zoom out button.png in Resources */,
@@ -362,10 +384,12 @@
 				171899D61625020000603B8E /* red.png in Resources */,
 				171899D71625020000603B8E /* white.png in Resources */,
 				171899D81625020000603B8E /* yellow.png in Resources */,
+				17B11AEC1951838B005AD553 /* Start interface blank.png in Resources */,
 				171899DA16250E7E00603B8E /* Reset_Button.png in Resources */,
 				171899DC16251B3A00603B8E /* badgeIcon.png in Resources */,
 				F5B3339C194901C200D9043D /* Arrow down button press.png in Resources */,
 				17CADFD91660F7F70039590B /* First_Scene.png in Resources */,
+				172129D41961671C00E8565A /* morven strip.png in Resources */,
 				17CADFDB1660F8400039590B /* Last Frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
