@@ -119,6 +119,11 @@
     self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
 }
 
+- (IBAction)AddTextBUtton:(UIButton *)sender {
+    
+    textField.hidden=NO;
+    [self.view addSubview:textField];
+}
 
 
 
