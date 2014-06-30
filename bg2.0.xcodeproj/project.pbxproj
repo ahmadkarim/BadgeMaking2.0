@@ -17,6 +17,7 @@
 		171899DA16250E7E00603B8E /* Reset_Button.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899D916250E7E00603B8E /* Reset_Button.png */; };
 		171899DC16251B3A00603B8E /* badgeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899DB16251B3A00603B8E /* badgeIcon.png */; };
 		172129D41961671C00E8565A /* morven strip.png in Resources */ = {isa = PBXBuildFile; fileRef = 172129D31961671C00E8565A /* morven strip.png */; };
+		172129D61961765E00E8565A /* splash screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 172129D51961765E00E8565A /* splash screen.jpg */; };
 		17B11AEC1951838B005AD553 /* Start interface blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEB1951838B005AD553 /* Start interface blank.png */; };
 		17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AED19518391005AD553 /* Start BUTTON press.png */; };
 		17B11AF019518403005AD553 /* Start BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEF19518403005AD553 /* Start BUTTON.png */; };
@@ -71,6 +72,7 @@
 		171899D916250E7E00603B8E /* Reset_Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reset_Button.png; sourceTree = "<group>"; };
 		171899DB16251B3A00603B8E /* badgeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgeIcon.png; sourceTree = "<group>"; };
 		172129D31961671C00E8565A /* morven strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "morven strip.png"; sourceTree = "<group>"; };
+		172129D51961765E00E8565A /* splash screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "splash screen.jpg"; sourceTree = "<group>"; };
 		17B11AEB1951838B005AD553 /* Start interface blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start interface blank.png"; sourceTree = "<group>"; };
 		17B11AED19518391005AD553 /* Start BUTTON press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON press.png"; sourceTree = "<group>"; };
 		17B11AEF19518403005AD553 /* Start BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON.png"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		17D11B7C1621CFA2008D7FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				172129D51961765E00E8565A /* splash screen.jpg */,
 				17B11AEA19518378005AD553 /* First Screen */,
 				F5B33386194900CA00D9043D /* MainViewNewVisuals */,
 				1718995216234CFD00603B8E /* MainView */,
@@ -353,6 +356,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172129D61961765E00E8565A /* splash screen.jpg in Resources */,
 				17D11B801621CFA2008D7FBA /* InfoPlist.strings in Resources */,
 				17D11B881621CFA2008D7FBA /* Default.png in Resources */,
 				F5B333AE194901C200D9043D /* zoom out button press.png in Resources */,
