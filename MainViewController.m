@@ -166,16 +166,7 @@
     
 }
 
-- (IBAction)Color {
- 
-    
-}
 
-- (IBAction)Graphics {
-    
-  
-   
-}
 
 - (IBAction)TEXT {
    
@@ -205,23 +196,71 @@
     
     NSLog(@"Print Called");
     
+    //////////////////////////////////////////////////////////////
+    _xforText=baseViewLABEL.frame.origin.x - 345;
+    _yforText=baseViewLABEL.frame.origin.y - 131;
+    rectForTextX=(_xforText + 50) * 0.90;
+    rectForTextY=(_yforText + 50) * 0.90;
+    
+    labelRectScale=labelNewScale *135;
+    fontScale=labelNewScale * 25;
+    //////////////////////////////////////////////////////////////
+
+    
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
-    CGContextRef  context = UIGraphicsGetCurrentContext();
     
-    baseRect=CGRectMake(50, 50, 200, 200);
-    printableRect=CGRectMake(rectX+50,rectY+50,rectScale,rectScale);
+    
+    
+   // UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0);
+
+      baseRect=CGRectMake(235, 140, 200, 200);
+    
+    printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(400,275, 240, 220);
-    printableText=CGRectMake((rectForTextX-20)+50, rectForTextY+50, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
+    printableText=CGRectMake((rectForTextX-20), rectForTextY+50, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
     
     //printableText=CGRectMake(0, 50, 200, 200);
     
-    // CGRect  printableRect=CGRectMake(0,0, 200, 200);
     
-    [self.cameraImageView.image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
     
-     //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    
+ //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    
+    //Atributes for string
+ /*
+    NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    textStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    textStyle.alignment = NSTextAlignmentCenter;
+ 
+    
+  NSDictionary *dictionary = @{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:fontScale ] ,
+                                NSParagraphStyleAttributeName:textStyle
+                                ,NSForegroundColorAttributeName:[UIColor whiteColor] };
+    
+    [text drawInRect:printableText withAttributes:dictionary];
+*/
+    
+ 
+    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
+
+    
+  
+     buffer= UIGraphicsGetImageFromCurrentImageContext();
+     
+    
+    UIGraphicsEndImageContext();
+    
+    
+ /*    //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      //   [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      //   [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
 
@@ -253,8 +292,12 @@
     // NSLog(@"\n\n\n=========Printed sucessfull in loop");
     
   //  imagetoprint=image;
-    imagetoprint= UIImageJPEGRepresentation(self.cameraImageView.image, 1.0);
-   // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
+    
+    */
+    imagetoprint= UIImageJPEGRepresentation(buffer, 1.0);
+   
+ /*
+    // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
     //newImage=[baseImage ]
     //CIImage * image;//=CFBridgingRelease(CFBridgingRetain(baseImage));
    
@@ -263,7 +306,7 @@
     
   //  newImage=[UIImage imageWithCIImage:image scale:0.5 orientation:UIImageOrientationUp];
   //  NSData * imagetpPrinttemp=UIImageJPEGRepresentation(newImage, 1.0);
-    
+  */
     UIPrintInteractionController *pic = [UIPrintInteractionController sharedPrintController];
     
     if(pic && [UIPrintInteractionController canPrintData: imagetoprint] ) {
@@ -286,7 +329,7 @@
                 NSLog(@"FAILED! due to error in domain %@ with error code %ld", error.domain, (long)error.code);
             }else{
                 NSLog(@"\n\n\n=========Printed sucessfull in loop");
-                timer=[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(lastSegue) userInfo:nil repeats:NO];
+              //  timer=[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(lastSegue) userInfo:nil repeats:NO];
                
             }
         };
@@ -313,8 +356,8 @@
     
     CGPoint location = [touch locationInView:touch.view];
    
-        location.x=location.x ;//+ (322-249);
-        location.y=location.y - 20;//+ (315-171);
+        location.y=location.x ;//+ (322-249);
+        location.x=location.y - 20;//+ (315-171);
      NSLog(@"====x=%2f======y=%2f===",location.x,location.y);
         if (newScale>=1.10) {
             if(    (location.x > 465 && location.x < 501 )   && (location.y  < 368  &&  location.y > 288  )  ){
@@ -341,7 +384,7 @@
     
     locationForText.x +=218.00;
     locationForText.y +=101.00;
-    if(    (locationForText.x > 373 && locationForText.x < 541 )   && (locationForText.y  < 431 &&  locationForText.y > 250  )  ){
+    if(    (locationForText.x > 393 && locationForText.x < 641 )   && (locationForText.y  < 400 &&  locationForText.y > 140  )  ){
         baseViewLABEL.center=locationForText;
         NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
     }
@@ -357,18 +400,34 @@
 
 - (IBAction)Preview {
     
+    
+    //////////////////////////////////////////////////////////////
+    _xforText=baseViewLABEL.frame.origin.x - 345;
+    _yforText=baseViewLABEL.frame.origin.y - 131;
+    rectForTextX=(_xforText + 50) * 0.90;
+    rectForTextY=(_yforText + 50) * 0.90;
+    
+    labelRectScale=labelNewScale *135;
+    fontScale=labelNewScale * 25;
+    //////////////////////////////////////////////////////////////
+    
    // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
     CGSize newSize = CGSizeMake(1024,768);
    
     UIGraphicsBeginImageContext( newSize );
-    CGContextRef  context = UIGraphicsGetCurrentContext();
+  //  CGContextRef  context = UIGraphicsGetCurrentContext();
    
-    baseRect=CGRectMake(0, 0, 200, 200);
+    baseRect=CGRectMake(235, 140, 200, 200);
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
     
-   // CGRect  printableRect=CGRectMake(0,0, 200, 200);
+   
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+ /*  // CGRect  printableRect=CGRectMake(0,0, 200, 200);
     
       //  [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
     //    [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
@@ -400,6 +459,20 @@
 //     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+ */
+    
+    CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    
+   // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+ 
+    
+    
+    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
+    
+    
+    
+  //  buffer= UIGraphicsGetImageFromCurrentImageContext();
     
     previewImage=UIGraphicsGetImageFromCurrentImageContext();
     
@@ -560,7 +633,7 @@
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     
     // CHECK FOR YOUR APP
-    self.previewLayer.frame = CGRectMake(192,144, 640 , 480);
+    self.previewLayer.frame = CGRectMake(192,52, 640 , 480);
     
     
     self.previewLayer.connection.videoOrientation=AVCaptureVideoOrientationLandscapeRight;
@@ -596,7 +669,7 @@
      redband.bounds = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
      redband.position = CGPointMake(384, 510);
      */
-    [self.view.layer insertSublayer:self.previewLayer atIndex:0];   // Comment-out to hide preview layer
+    [self.view.layer insertSublayer:self.previewLayer atIndex:2];   // Comment-out to hide preview layer
     //  [self.view.layer insertSublayer:theLayer above:self.previewLayer];
     //  [self.view.layer insertSublayer:HW above:self.previewLayer];
     //  [self.view.layer insertSublayer:redband above:self.previewLayer];

@@ -115,7 +115,7 @@
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer* previewLayer;
 @property (strong, nonatomic) UIImage* cameraImage;
 @property (weak, nonatomic) UIView* CroppedView;
-@property (strong, nonatomic)UIImage * CropImage;
+//@property (strong, nonatomic)UIImage * CropImage;
 
 
 
@@ -142,17 +142,17 @@
 - (IBAction)Prints;
 - (IBAction)Preview;
 //***********COLOR layer buttons***************
-- (IBAction)yellowButton;
-- (IBAction)whiteButton;
-- (IBAction)redButton;
-- (IBAction)blueButton;
-
-- (IBAction)printColorLayer;
+//- (IBAction)yellowButton;
+//- (IBAction)whiteButton;
+//- (IBAction)redButton;
+//- (IBAction)blueButton;
+//
+//- (IBAction)printColorLayer;
 
 //************GraphicsLayer*****************
-- (IBAction)okGraphics;
-- (IBAction)printGraphics;
-- (IBAction)previewGraphics;
+//- (IBAction)okGraphics;
+//- (IBAction)printGraphics;
+//- (IBAction)previewGraphics;
 
 
 //************************TextView**************
