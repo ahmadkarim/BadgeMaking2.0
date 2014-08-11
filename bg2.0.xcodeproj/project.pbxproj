@@ -18,6 +18,12 @@
 		171899DC16251B3A00603B8E /* badgeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 171899DB16251B3A00603B8E /* badgeIcon.png */; };
 		172129D41961671C00E8565A /* morven strip.png in Resources */ = {isa = PBXBuildFile; fileRef = 172129D31961671C00E8565A /* morven strip.png */; };
 		172129D61961765E00E8565A /* splash screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 172129D51961765E00E8565A /* splash screen.jpg */; };
+		1750D4D41998D5EE006BD83A /* face.png in Resources */ = {isa = PBXBuildFile; fileRef = 1750D4D11998D5EE006BD83A /* face.png */; };
+		1750D4D51998D5EE006BD83A /* self.png in Resources */ = {isa = PBXBuildFile; fileRef = 1750D4D21998D5EE006BD83A /* self.png */; };
+		1750D4D61998D5EE006BD83A /* with friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 1750D4D31998D5EE006BD83A /* with friend.png */; };
+		1750D4D91998D9EA006BD83A /* WithFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750D4D81998D9EA006BD83A /* WithFriendViewController.m */; };
+		1750D4DD1998E606006BD83A /* PreviewScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1750D4DC1998E606006BD83A /* PreviewScreenViewController.m */; };
+		1750D4E01998EBE0006BD83A /* squareCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 1750D4DF1998EBE0006BD83A /* squareCircle.png */; };
 		17B11AEC1951838B005AD553 /* Start interface blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEB1951838B005AD553 /* Start interface blank.png */; };
 		17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AED19518391005AD553 /* Start BUTTON press.png */; };
 		17B11AF019518403005AD553 /* Start BUTTON.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B11AEF19518403005AD553 /* Start BUTTON.png */; };
@@ -73,6 +79,14 @@
 		171899DB16251B3A00603B8E /* badgeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgeIcon.png; sourceTree = "<group>"; };
 		172129D31961671C00E8565A /* morven strip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "morven strip.png"; sourceTree = "<group>"; };
 		172129D51961765E00E8565A /* splash screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "splash screen.jpg"; sourceTree = "<group>"; };
+		1750D4D11998D5EE006BD83A /* face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face.png; sourceTree = "<group>"; };
+		1750D4D21998D5EE006BD83A /* self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = self.png; sourceTree = "<group>"; };
+		1750D4D31998D5EE006BD83A /* with friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "with friend.png"; sourceTree = "<group>"; };
+		1750D4D71998D9EA006BD83A /* WithFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WithFriendViewController.h; sourceTree = "<group>"; };
+		1750D4D81998D9EA006BD83A /* WithFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WithFriendViewController.m; sourceTree = "<group>"; };
+		1750D4DB1998E606006BD83A /* PreviewScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewScreenViewController.h; sourceTree = "<group>"; };
+		1750D4DC1998E606006BD83A /* PreviewScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewScreenViewController.m; sourceTree = "<group>"; };
+		1750D4DF1998EBE0006BD83A /* squareCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareCircle.png; sourceTree = "<group>"; };
 		17B11AEB1951838B005AD553 /* Start interface blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start interface blank.png"; sourceTree = "<group>"; };
 		17B11AED19518391005AD553 /* Start BUTTON press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON press.png"; sourceTree = "<group>"; };
 		17B11AEF19518403005AD553 /* Start BUTTON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Start BUTTON.png"; sourceTree = "<group>"; };
@@ -239,7 +253,11 @@
 				17D11B911621CFA2008D7FBA /* AKViewController.m */,
 				171899781623554400603B8E /* MainViewController.h */,
 				171899791623554400603B8E /* MainViewController.m */,
+				1750D4D71998D9EA006BD83A /* WithFriendViewController.h */,
+				1750D4D81998D9EA006BD83A /* WithFriendViewController.m */,
 				17D11B981621D0ED008D7FBA /* printViewController.h */,
+				1750D4DB1998E606006BD83A /* PreviewScreenViewController.h */,
+				1750D4DC1998E606006BD83A /* PreviewScreenViewController.m */,
 				17D11B991621D0ED008D7FBA /* printViewController.m */,
 				17D11B7C1621CFA2008D7FBA /* Supporting Files */,
 			);
@@ -249,6 +267,10 @@
 		17D11B7C1621CFA2008D7FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1750D4DF1998EBE0006BD83A /* squareCircle.png */,
+				1750D4D11998D5EE006BD83A /* face.png */,
+				1750D4D21998D5EE006BD83A /* self.png */,
+				1750D4D31998D5EE006BD83A /* with friend.png */,
 				172129D51961765E00E8565A /* splash screen.jpg */,
 				17B11AEA19518378005AD553 /* First Screen */,
 				F5B33386194900CA00D9043D /* MainViewNewVisuals */,
@@ -330,7 +352,7 @@
 				ORGANIZATIONNAME = "Ahmad Karim";
 				TargetAttributes = {
 					17D11B701621CFA2008D7FBA = {
-						DevelopmentTeam = N2S353Z69T;
+						DevelopmentTeam = VM9TZ5P7XR;
 					};
 				};
 			};
@@ -364,7 +386,9 @@
 				17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */,
 				17B11AF019518403005AD553 /* Start BUTTON.png in Resources */,
 				17D11B8C1621CFA2008D7FBA /* Default-568h@2x.png in Resources */,
+				1750D4E01998EBE0006BD83A /* squareCircle.png in Resources */,
 				17D11B8F1621CFA2008D7FBA /* MainStoryboard.storyboard in Resources */,
+				1750D4D51998D5EE006BD83A /* self.png in Resources */,
 				F5B333AF194901C200D9043D /* zoom out button.png in Resources */,
 				1718995116234AA900603B8E /* Start_Button.png in Resources */,
 				F5B333A4194901C200D9043D /* camera button press copy.png in Resources */,
@@ -375,6 +399,7 @@
 				F5B333AA194901C200D9043D /* text button press.png in Resources */,
 				F5B3339D194901C200D9043D /* Arrow down button.png in Resources */,
 				F5B333A7194901C200D9043D /* print button press.png in Resources */,
+				1750D4D61998D5EE006BD83A /* with friend.png in Resources */,
 				F5B333A3194901C200D9043D /* Arrow up button.png in Resources */,
 				F5B3339F194901C200D9043D /* Arrow left button.png in Resources */,
 				F5B333A5194901C200D9043D /* camera button.png in Resources */,
@@ -382,6 +407,7 @@
 				F5B333AB194901C200D9043D /* text button.png in Resources */,
 				171899D01624F75000603B8E /* Badge_template.png in Resources */,
 				F5B333A1194901C200D9043D /* Arrow right button.png in Resources */,
+				1750D4D41998D5EE006BD83A /* face.png in Resources */,
 				F5B333A8194901C200D9043D /* print button.png in Resources */,
 				F5B3339E194901C200D9043D /* Arrow left button Press.png in Resources */,
 				171899D51625020000603B8E /* blue.png in Resources */,
@@ -405,8 +431,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1750D4DD1998E606006BD83A /* PreviewScreenViewController.m in Sources */,
 				17D11B821621CFA2008D7FBA /* main.m in Sources */,
 				17D11B861621CFA2008D7FBA /* AKAppDelegate.m in Sources */,
+				1750D4D91998D9EA006BD83A /* WithFriendViewController.m in Sources */,
 				17D11B921621CFA2008D7FBA /* AKViewController.m in Sources */,
 				17D11B9A1621D0ED008D7FBA /* printViewController.m in Sources */,
 				1718997A1623554400603B8E /* MainViewController.m in Sources */,

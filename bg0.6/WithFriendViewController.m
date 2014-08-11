@@ -1,21 +1,18 @@
 //
-//  MainViewController.m
-//  bg0.6
+//  WithFriendViewController.m
+//  bg2.0
 //
-//  Created by Ahmad Karim on 08/10/2012.
-//  Copyright (c) 2012 Ahmad Karim. All rights reserved.
+//  Created by Ahmad Karim on 11/08/2014.
+//  Copyright (c) 2014 Ahmad Karim. All rights reserved.
 //
-//
-#import "MainViewController.h"
-#import "PreviewScreenViewController.h"
 
-@interface MainViewController ()
+#import "WithFriendViewController.h"
+
+@interface WithFriendViewController ()
 
 @end
 
-@implementation MainViewController
-@synthesize baseColor;
-@synthesize baseColorView;
+@implementation WithFriendViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +33,7 @@
     
     [self setupCamera];
     
-        [textView removeFromSuperview  ];
+
     [textField removeFromSuperview];
     
     
@@ -48,7 +45,7 @@
     fontScale=23;
     newScale=1;
     labelNewScale=1;
-   
+    
 }
 
 - (IBAction)pinchDetected:(UIGestureRecognizer *)sender {
@@ -56,16 +53,16 @@
     CGFloat scale = [(UIPinchGestureRecognizer *)sender scale];
     CGFloat velocity =[(UIPinchGestureRecognizer *)sender velocity];
     
-   // NSString *resultString = [[NSString alloc] initWithFormat: @"Pinch - scale = %f, velocity = %f",scale, velocity];
+    // NSString *resultString = [[NSString alloc] initWithFormat: @"Pinch - scale = %f, velocity = %f",scale, velocity];
     
     NSLog(@"Pinch - scale = %f, velocity = %f",scale, velocity);
-
+    
     if (touchEnabled) {
         if ( (scale > 0.8) && (scale < 1.165) ) {
             newScale = scale;
-           CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
-            baseViewINSTRUMENT.transform = transform;
-             self.cameraImageView.transform=transform;
+            CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+         //   baseViewINSTRUMENT.transform = transform;
+            self.cameraImageView.transform=transform;
         }
     }
     
@@ -73,7 +70,7 @@
         if ( (scale > 0.8) && (scale < 1.565) ) {
             labelNewScale = scale;
             CGAffineTransform transform = CGAffineTransformMakeScale(labelNewScale,labelNewScale);
-            baseViewLABEL.transform = transform;
+            //baseViewLABEL.transform = transform;
         }
     }
     
@@ -152,48 +149,8 @@
     [self performSegueWithIdentifier: @"MySegue" sender: self];
 }
 
-- (IBAction)ResetButton {
-    
-    [baseViewLABEL removeFromSuperview];
-    [baseViewINSTRUMENT removeFromSuperview];
-    [baseViewCOLOR removeFromSuperview];
-    [previewView removeFromSuperview];
-    
-    [baseViewINSTRUMENT setImage:Nil];
-        [baseViewCOLOR setImage:Nil];
-        [baseViewLABEL setText:Nil];
-    text=Nil;
-    textField.text=Nil;
-    
-    
-    UIGraphicsEndImageContext();
-    
-    
-}
 
 
-
-- (IBAction)TEXT {
-   
-    if (_colorTag==3 || _colorTag==4) {
-        textField.textColor=[UIColor whiteColor];
-        
-    }else{
-        textField.textColor=[UIColor blackColor];
-        
-    }
-    
-    [baseViewLABEL removeFromSuperview];
-    [firstView removeFromSuperview];
-    //[baseColor removeFromSuperview];
-     [self.view addSubview:textView];
-    
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    //[self.view addSubview:baseViewLABEL];
-    [self.view addSubview:textField];
-    //textField.backgroundColor = [UIColor redColor];
-}
 
 
 
@@ -202,15 +159,15 @@
     NSLog(@"Print Called");
     
     //////////////////////////////////////////////////////////////
-    _xforText=baseViewLABEL.frame.origin.x - 345;
-    _yforText=baseViewLABEL.frame.origin.y - 131;
+//    _xforText=baseViewLABEL.frame.origin.x - 345;
+//    _yforText=baseViewLABEL.frame.origin.y - 131;
     rectForTextX=(_xforText + 50) * 0.90;
     rectForTextY=(_yforText + 50) * 0.90;
     
     labelRectScale=labelNewScale *135;
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
-
+    
     
     CGSize newSize = CGSizeMake(1024,768);
     
@@ -218,9 +175,9 @@
     
     
     
-   // UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0);
-
-      baseRect=CGRectMake(235, 140, 200, 200);
+    // UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0);
+    
+    baseRect=CGRectMake(235, 140, 200, 200);
     
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(400,275, 240, 220);
@@ -233,85 +190,85 @@
     UIImage * image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     
-     CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    CGRect  printableRect1=CGRectMake(50,50, 300, 300);
     
- //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
-     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
     
     //Atributes for string
- /*
-    NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
-    textStyle.lineBreakMode = NSLineBreakByWordWrapping;
-    textStyle.alignment = NSTextAlignmentCenter;
- 
-    
-  NSDictionary *dictionary = @{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:fontScale ] ,
-                                NSParagraphStyleAttributeName:textStyle
-                                ,NSForegroundColorAttributeName:[UIColor whiteColor] };
-    
-    [text drawInRect:printableText withAttributes:dictionary];
-*/
-    
- 
-    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
-
-    
-  
-     buffer= UIGraphicsGetImageFromCurrentImageContext();
+    /*
+     NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+     textStyle.lineBreakMode = NSLineBreakByWordWrapping;
+     textStyle.alignment = NSTextAlignmentCenter;
      
+     
+     NSDictionary *dictionary = @{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:fontScale ] ,
+     NSParagraphStyleAttributeName:textStyle
+     ,NSForegroundColorAttributeName:[UIColor whiteColor] };
+     
+     [text drawInRect:printableText withAttributes:dictionary];
+     */
+    
+    
+    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
+    
+    
+    
+    buffer= UIGraphicsGetImageFromCurrentImageContext();
+    
     
     UIGraphicsEndImageContext();
     
     
- /*    //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    /*    //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      //   [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      //   [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-
-      //  [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    
-    
-
-      //  CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-        
-
-       // CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-        
-  
-    
-    
-    
-  //  [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
-
-
-    //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-    //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    
- //   previewImage=UIGraphicsGetImageFromCurrentImageContext();
-    
-   // [previewView setImage:previewImage];
-   //  [self.view addSubview:previewView];
-    
- //   UIGraphicsEndImageContext();
-    // NSLog(@"\n\n\n=========Printed sucessfull in loop");
-    
-  //  imagetoprint=image;
-    
-    */
+     
+     //  [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     
+     
+     //  CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+     
+     
+     // CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+     
+     
+     
+     
+     
+     //  [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+     
+     
+     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     //   previewImage=UIGraphicsGetImageFromCurrentImageContext();
+     
+     // [previewView setImage:previewImage];
+     //  [self.view addSubview:previewView];
+     
+     //   UIGraphicsEndImageContext();
+     // NSLog(@"\n\n\n=========Printed sucessfull in loop");
+     
+     //  imagetoprint=image;
+     
+     */
     imagetoprint= UIImageJPEGRepresentation(buffer, 1.0);
-   
- /*
-    // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
-    //newImage=[baseImage ]
-    //CIImage * image;//=CFBridgingRelease(CFBridgingRetain(baseImage));
-   
-   // baseImage=[UIImage imageWithCGImage:[baseImage CGImage] scale:0.2 orientation:UIImageOrientationUp];
-  //  imagetoprint= UIImageJPEGRepresentation(previewImage, 1.0);
     
-  //  newImage=[UIImage imageWithCIImage:image scale:0.5 orientation:UIImageOrientationUp];
-  //  NSData * imagetpPrinttemp=UIImageJPEGRepresentation(newImage, 1.0);
-  */
+    /*
+     // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
+     //newImage=[baseImage ]
+     //CIImage * image;//=CFBridgingRelease(CFBridgingRetain(baseImage));
+     
+     // baseImage=[UIImage imageWithCGImage:[baseImage CGImage] scale:0.2 orientation:UIImageOrientationUp];
+     //  imagetoprint= UIImageJPEGRepresentation(previewImage, 1.0);
+     
+     //  newImage=[UIImage imageWithCIImage:image scale:0.5 orientation:UIImageOrientationUp];
+     //  NSData * imagetpPrinttemp=UIImageJPEGRepresentation(newImage, 1.0);
+     */
     UIPrintInteractionController *pic = [UIPrintInteractionController sharedPrintController];
     
     if(pic && [UIPrintInteractionController canPrintData: imagetoprint] ) {
@@ -334,67 +291,70 @@
                 NSLog(@"FAILED! due to error in domain %@ with error code %ld", error.domain, (long)error.code);
             }else{
                 NSLog(@"\n\n\n=========Printed sucessfull in loop");
-                timer=[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(lastSegue) userInfo:nil repeats:NO];
-               
+                //  timer=[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(lastSegue) userInfo:nil repeats:NO];
+                
             }
         };
         [pic presentAnimated:YES completionHandler:completionHandler];
         
     }
     
-   
-     
+    
+    
     
     
 }
 
 
-
+-(void)callLastSegue{
+    
+    
+}
 
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-   UITouch *touch=[[event allTouches]anyObject];
+    UITouch *touch=[[event allTouches]anyObject];
     if (touchEnabled) {
-    
-    CGPoint location = [touch locationInView:touch.view];
-   
+        
+        CGPoint location = [touch locationInView:touch.view];
+        
         location.y=location.x ;//+ (322-249);
         location.x=location.y - 20;//+ (315-171);
-     NSLog(@"====x=%2f======y=%2f===",location.x,location.y);
+        NSLog(@"====x=%2f======y=%2f===",location.x,location.y);
         if (newScale>=1.10) {
             if(    (location.x > 465 && location.x < 501 )   && (location.y  < 368  &&  location.y > 288  )  ){
-            baseViewINSTRUMENT.center=location;
-            NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-             }
+                //baseViewINSTRUMENT.center=location;
+          //      NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
+            }
         }else{
             
             if(    (location.x > 435 && location.x < 555 )   && (location.y  < 398  &&  location.y > 240  )  ){
-                baseViewINSTRUMENT.center=location;
-                NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
+            //    baseViewINSTRUMENT.center=location;
+          //      NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,//baseViewINSTRUMENT.frame.origin.y);
             }
         }
-       
+        
     }// handling the movement of Graphics
     
     // for handling the movementof text
-   
+    
     if (textTouchEnabled) {
         
-    
-    
-    CGPoint locationForText = [touch locationInView:touch.view];
-    
-    locationForText.x +=218.00;
-    locationForText.y +=101.00;
-    if(    (locationForText.x > 393 && locationForText.x < 641 )   && (locationForText.y  < 400 &&  locationForText.y > 140  )  ){
-        baseViewLABEL.center=locationForText;
-        NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-    }
-    
-    //baseViewLABEL.center=locationForText;
-    NSLog(@"\nbaseviewLabel X=%2f-----baseviewLabel Y=%2f--",baseViewLABEL.frame.origin.x,baseViewLABEL.frame.origin.y);
-    NSLog(@"\nlocationX= %2f ----- locationY= %2f----",locationForText.x,locationForText.y);
-
+        
+        
+        CGPoint locationForText = [touch locationInView:touch.view];
+        
+        locationForText.x +=218.00;
+        locationForText.y +=101.00;
+        if(    (locationForText.x > 393 && locationForText.x < 641 )   && (locationForText.y  < 400 &&  locationForText.y > 140  )  ){
+       //     baseViewLABEL.center=locationForText;
+       //     NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
+        }
+        
+        //baseViewLABEL.center=locationForText;
+      //  NSLog(@"\nbaseviewLabel X=%2f-----baseviewLabel Y=%2f--",baseViewLABEL.frame.origin.x,baseViewLABEL.frame.origin.y);
+     //   NSLog(@"\nlocationX= %2f ----- locationY= %2f----",locationForText.x,locationForText.y);
+        
     }
 }
 
@@ -404,8 +364,8 @@
     
     
     //////////////////////////////////////////////////////////////
-    _xforText=baseViewLABEL.frame.origin.x - 345;
-    _yforText=baseViewLABEL.frame.origin.y - 131;
+  //  _xforText=baseViewLABEL.frame.origin.x - 345;
+ //   _yforText=baseViewLABEL.frame.origin.y - 131;
     rectForTextX=(_xforText + 50) * 0.90;
     rectForTextY=(_yforText + 50) * 0.90;
     
@@ -413,68 +373,68 @@
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
     
-   // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
+    // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
     CGSize newSize = CGSizeMake(1024,768);
-   
+    
     UIGraphicsBeginImageContext( newSize );
-  //  CGContextRef  context = UIGraphicsGetCurrentContext();
-   
+    //  CGContextRef  context = UIGraphicsGetCurrentContext();
+    
     baseRect=CGRectMake(235, 140, 200, 200);
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
     
-   
+    
     CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
     UIImage * image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     
- /*  // CGRect  printableRect=CGRectMake(0,0, 200, 200);
-    
-      //  [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-    //    [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    //    [baseRed drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    //    [baseBlue drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    
-    
-    
-      //  [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-//        [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-//        [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-//        [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    
-
-     //   CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-        
-
-    //    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-        
-    
-    
-    
-    
- //   [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
+    /*  // CGRect  printableRect=CGRectMake(0,0, 200, 200);
      
-//     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
-    //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-    //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
- */
+     //  [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //    [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     //    [baseRed drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     //    [baseBlue drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     
+     
+     
+     //  [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //        [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //        [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //        [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     
+     
+     //   CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+     
+     
+     //    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+     
+     
+     
+     
+     
+     //   [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
+     
+     //     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     */
     
     CGRect  printableRect1=CGRectMake(50,50, 300, 300);
     
-   // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
- 
+    
     
     
     [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
     
     
     
-  //  buffer= UIGraphicsGetImageFromCurrentImageContext();
+    //  buffer= UIGraphicsGetImageFromCurrentImageContext();
     
     previewImage=UIGraphicsGetImageFromCurrentImageContext();
     
@@ -493,17 +453,8 @@
 - (void)viewDidUnload {
     UIGraphicsEndImageContext();
     YellowBase = nil;
-    firstView = nil;
-    ColorView = nil;
-    GraphicsView = nil;
-    baseColor = nil;
-    [self setBaseColor:nil];
-    baseColorView = nil;
-    textView = nil;
-    textField = nil;
-    baseViewLABEL = nil;
-    baseViewINSTRUMENT = nil;
-    baseViewCOLOR = nil;
+
+
     previewView = nil;
     textFeildDifferent = nil;
     [super viewDidUnload];
@@ -511,68 +462,16 @@
 
 
 
-
-
-- (IBAction)okText {
-   // resigning first responder
-    [textField resignFirstResponder];
-
-      //NSLog(@"\nbaseviewLabel X=%2f-----baseviewLabel Y=%2f--",baseViewLABEL.frame.origin.x,baseViewLABEL.frame.origin.y);
-    [textView removeFromSuperview];
-    
-
-    
-   text=textField.text;
-   baseViewLABEL.text=text;
-    
- //baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    //baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-   //[self.view addSubview:baseColor ];
-  
-    [textField removeFromSuperview];
-    
-     [self.view addSubview:firstView];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-// adjustment of text
-    
-    
-    _xforText=baseViewLABEL.frame.origin.x - 395;
-    _yforText=baseViewLABEL.frame.origin.y - 281;
-    rectForTextX=(_xforText + 50) * 0.90;
-    rectForTextY=(_yforText + 50) * 0.90;
-    
-    labelRectScale=labelNewScale *135;
-    fontScale=labelNewScale * 25;
-// no adjustment allowed now
-    textTouchEnabled=NO;
-    
-
- //   [self textFieldShouldEndEditing:textField];
-    NSLog(@"OK TEXT");
-    
-}
-
-
-- (IBAction)OK {
-    
-   // [textField resignFirstResponder];
-
-    
-}
-
-
 -(void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"DONE EDITING");
     textTouchEnabled=YES;
-    [self DoneEditing];
+//    [self DoneEditing];
 }
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     
-   NSLog(@"Begin EDITING");
+    NSLog(@"Begin EDITING");
     textTouchEnabled=NO;
-
+    
     
 }
 
@@ -583,22 +482,7 @@
 }
 
 
--(void)DoneEditing{
-    
-    text=textField.text;
-    baseViewLABEL.text=text;
-    [textField removeFromSuperview];
-    [self.view addSubview:baseViewLABEL];
-  
-    if (_colorTag==3 || _colorTag==4) {
-        baseViewLABEL.textColor=[UIColor whiteColor];
-        
-    }else{
-        baseViewLABEL.textColor=[UIColor blackColor];
-        
-    }
-    
-}
+
 
 //===================================CAMERA =======================
 - (void)setupCamera
@@ -703,19 +587,19 @@
      CGImageRelease(imageRef);
      }*/
     
-
     
-//    UIImage *cameraScreenReplace = [UIImage imageNamed:@"camera screen new.png"];
-//    [CameraScreenReplace setImage:cameraScreenReplace];
-//    
-   
+    
+    //    UIImage *cameraScreenReplace = [UIImage imageNamed:@"camera screen new.png"];
+    //    [CameraScreenReplace setImage:cameraScreenReplace];
+    //
+    
     [self.captureSession stopRunning];
-   
+    
     
     CGRect A=CGRectMake(192,52, 640 , 480);
     self.cameraImageView.image = self.cameraImage;
     self.cameraImageView.frame=A;
-   // self.cameraImageView.image = self.cameraImage;
+    // self.cameraImageView.image = self.cameraImage;
     // self.TestImage.image=self.cameraImage;
     
     NSLog(@"%f , %f",self.cameraImage.size.height,self.cameraImage.size.width);
@@ -728,17 +612,17 @@
      UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer  alloc] initWithTarget:self action:@selector(pinchDetected:)];
      [cameraImageView addGestureRecognizer:pinchRecognizer];   */
     
-   // CGSize newSize = CGSizeMake(1024,768);
+    // CGSize newSize = CGSizeMake(1024,768);
     
-  //  UIGraphicsBeginImageContext( newSize );
-//CGContextRef  context = UIGraphicsGetCurrentContext();
+    //  UIGraphicsBeginImageContext( newSize );
+    //CGContextRef  context = UIGraphicsGetCurrentContext();
     
-  //  CGRect baseRect=CGRectMake(450, 450, 300, 300);
+    //  CGRect baseRect=CGRectMake(450, 450, 300, 300);
     
     // [self.cameraImage drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-  //  CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    //  CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
     
- //   self.TestImage.image=UIGraphicsGetImageFromCurrentImageContext();
+    //   self.TestImage.image=UIGraphicsGetImageFromCurrentImageContext();
     
     // [previewView setImage:previewImage];
     //  [self.view addSubview:previewView];
@@ -787,17 +671,15 @@
 
 //=================================================================
 
-
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
-    PreviewScreenViewController * Pvc = [segue destinationViewController];
-    Pvc.previewImage=buffer;
-    
     // Pass the selected object to the new view controller.
 }
+*/
 
 @end

@@ -21,17 +21,10 @@
         UIImage * CropImage;
         
         UIImage * buffer;
-        IBOutlet UIButton *NextScreenButtonOutlet;
-        IBOutlet UIButton *CaptureButtonOutlet;
-        IBOutlet UIButton *SwitchButtonOutlet;
         IBOutlet UIImageView *CameraScreenReplace;
         
         
-        
-        IBOutlet UIButton *OriginalbuttonOutlet;
-        IBOutlet UIButton *ToonButtonOutlet;
-        IBOutlet UIButton *CropButtonOutlet;
-        IBOutlet UIImageView *MessagesViewController;
+
         
         BOOL ToonFilterActivated;
         BOOL OriginalImageSelected;
