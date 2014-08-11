@@ -209,5 +209,51 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bg0.6/WithFriendViewController.h"
+            timestampString = "429462618.838414"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "@interface WithFriendViewController"
+            landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WithFriendViewController TestImage]"
+                  moduleName = "bg2.0"
+                  urlString = "file:///Users/vertexmedia/Desktop/Dilivered%20Programs/MG%20Modifications%2023%20Nov/Badge%20Making%20App/Adjustment%20using%20gesture%20/Badge%20Making%20App/bg0.6/bg0.6/WithFriendViewController.h"
+                  timestampString = "429462618.930996"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[WithFriendViewController setTestImage:]"
+                  moduleName = "bg2.0"
+                  urlString = "file:///Users/vertexmedia/Desktop/Dilivered%20Programs/MG%20Modifications%2023%20Nov/Badge%20Making%20App/Adjustment%20using%20gesture%20/Badge%20Making%20App/bg0.6/bg0.6/WithFriendViewController.h"
+                  timestampString = "429462618.931884"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

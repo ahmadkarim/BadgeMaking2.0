@@ -150,6 +150,34 @@
 }
 
 
+- (IBAction)testMethod:(id)sender {
+    
+    CGSize newSize = CGSizeMake(1024,768);
+    
+    UIGraphicsBeginImageContext( newSize );
+
+    
+    baseRect=CGRectMake(0, 0, 320, 480);
+
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    
+  UIImage * image = [UIImage imageWithCGImage:imageRef];
+   CGImageRelease(imageRef);
+    
+    CGRect  printableRect1=CGRectMake(100,100, 320, 480);
+    
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    buffer= UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    previewView.image=buffer;
+    previewView.hidden=NO;
+    
+}
 
 
 
@@ -593,8 +621,7 @@
     //    [CameraScreenReplace setImage:cameraScreenReplace];
     //
     
-    [self.captureSession stopRunning];
-    
+    [self.captureSession stopRunning];     
     
     CGRect A=CGRectMake(192,52, 640 , 480);
     self.cameraImageView.image = self.cameraImage;
