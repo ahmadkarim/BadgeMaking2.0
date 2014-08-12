@@ -413,7 +413,7 @@
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
     
-   // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
+    UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
    
     UIGraphicsBeginImageContext( newSize );
@@ -467,7 +467,8 @@
     
    // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
- 
+    [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    
     
     
     [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];

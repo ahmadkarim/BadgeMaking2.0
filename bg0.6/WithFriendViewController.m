@@ -229,7 +229,7 @@
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     [image2 drawInRect:printableRect2 blendMode:kCGBlendModeNormal alpha:1.0];
     
-    previewView.image=UIGraphicsGetImageFromCurrentImageContext();
+    mergedImage=UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
     
@@ -457,19 +457,19 @@
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
     
-    // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
+     UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
     //  CGContextRef  context = UIGraphicsGetCurrentContext();
     
-    baseRect=CGRectMake(235, 140, 200, 200);
+    baseRect=CGRectMake(320, 240, 200, 200);
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
     
     
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([mergedImage CGImage], baseRect);
     UIImage * image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     
@@ -507,10 +507,11 @@
      //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
      */
     
-    CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    CGRect  printableRect1=CGRectMake(50,150, 300, 300);
     
     // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
     
     

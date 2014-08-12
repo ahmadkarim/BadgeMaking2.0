@@ -88,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MainViewController.m"
-            timestampString = "429451283.257617"
+            timestampString = "429527983.494692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
             landmarkName = "-okText"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MainViewController.m"
-            timestampString = "429451283.257617"
+            timestampString = "429527983.494692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "493"
-            endingLineNumber = "493"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
             landmarkName = "-viewDidUnload"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.h"
-            timestampString = "429522187.04585"
+            timestampString = "429527812.404811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "@interface WithFriendViewController"
             landmarkType = "2">
             <Locations>
@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "429523182.162858"
+            timestampString = "429530009.688541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "644"
-            endingLineNumber = "644"
+            startingLineNumber = "645"
+            endingLineNumber = "645"
             landmarkName = "-setupCamera"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,11 +278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "429523182.162858"
+            timestampString = "429530009.688541"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
+            startingLineNumber = "644"
+            endingLineNumber = "644"
             landmarkName = "-setupCamera"
             landmarkType = "5">
          </BreakpointContent>

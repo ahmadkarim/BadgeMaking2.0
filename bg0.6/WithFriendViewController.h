@@ -24,6 +24,7 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     
     UIImage * buffer;
     UIImage * buffer1;
+    UIImage * mergedImage;
     IBOutlet UIImageView *CameraScreenReplace;
     
     
