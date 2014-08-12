@@ -23,6 +23,7 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     UIImage * CropImage;
     
     UIImage * buffer;
+    UIImage * buffer1;
     IBOutlet UIImageView *CameraScreenReplace;
     
     
@@ -66,6 +67,9 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     
     IBOutlet UITextField *textFeildDifferent;
     NSTimer * timer;
+    
+    int checkForPrintButton;
+
     
     
 }

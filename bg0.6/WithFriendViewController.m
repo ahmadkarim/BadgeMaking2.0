@@ -31,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    checkForPrintButton=0;
+    
     [self setupCamera];
     
 
@@ -152,30 +154,84 @@
 
 - (IBAction)testMethod:(id)sender {
     
+    if (checkForPrintButton==1) {
+         NSLog(@" teset Method rect %d ",checkForPrintButton);
+        baseRect=CGRectMake(0, 0, 320, 480);
+        printableRect=CGRectMake(100,100, 320, 480);
+        
+    }else if (checkForPrintButton==2){
+        
+         NSLog(@" teset Method rect %d ",checkForPrintButton);
+        baseRect=CGRectMake(320, 0, 320, 480);
+        printableRect=CGRectMake(420,100, 320, 480);
+        
+    }
+    
+    
+    
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
 
-    
-    baseRect=CGRectMake(0, 0, 320, 480);
-
-    
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+     CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
     
   UIImage * image = [UIImage imageWithCGImage:imageRef];
    CGImageRelease(imageRef);
     
-    CGRect  printableRect1=CGRectMake(100,100, 320, 480);
     
-    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
-    buffer= UIGraphicsGetImageFromCurrentImageContext();
+    [image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    
+    if (checkForPrintButton==1) {
+         NSLog(@" teset Method BBuffer %d ",checkForPrintButton);
+        buffer= UIGraphicsGetImageFromCurrentImageContext();
+       //  previewView.image=buffer;
+    }else if (checkForPrintButton==2){
+         NSLog(@" teset Method buffer %d ",checkForPrintButton);
+        buffer1= UIGraphicsGetImageFromCurrentImageContext();
+       //  previewView.image=buffer1;
+    }
+   
     
     UIGraphicsEndImageContext();
     
     
-    previewView.image=buffer;
+   
     previewView.hidden=NO;
+    
+}
+
+
+-(IBAction)Test2Method:(id)sender{
+    
+    CGSize newSize = CGSizeMake(1024,768);
+    UIGraphicsBeginImageContext( newSize );
+    
+    
+    CGRect baseRectF1=CGRectMake(100, 0, 320, 480);
+    CGRect baseRectF2=CGRectMake(320, 0, 320, 480);
+    
+    CGRect printableRect1=CGRectMake(100,0, 320, 480);
+    CGRect printableRect2=CGRectMake(320,0, 320, 480);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([buffer CGImage], baseRectF1);
+    CGImageRef imageRef2 = CGImageCreateWithImageInRect([buffer1 CGImage],baseRectF2);
+    
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    UIImage * image2 = [UIImage imageWithCGImage:imageRef2];
+    
+    CGImageRelease(imageRef);
+    CGImageRelease(imageRef2);
+    
+    
+    
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [image2 drawInRect:printableRect2 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    previewView.image=UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
     
 }
 
@@ -594,6 +650,8 @@
 
 - (IBAction)Capture:(id)sender {
     
+    checkForPrintButton++;
+    
     /*  CIImage* image = [CIImage imageWithCGImage:(__bridge CGImageRef)(self.cameraImage)];
      CIDetector* detector = [CIDetector detectorOfType:CIDetectorTypeFace
      context:nil options:[NSDictionary dictionaryWithObject:CIDetectorAccuracyHigh forKey:CIDetectorAccuracy]];
@@ -621,7 +679,7 @@
     //    [CameraScreenReplace setImage:cameraScreenReplace];
     //
     
-    [self.captureSession stopRunning];     
+    
     
     CGRect A=CGRectMake(192,52, 640 , 480);
     self.cameraImageView.image = self.cameraImage;
@@ -667,6 +725,15 @@
     _y=self.cameraImageView.center.y;
     
     UIGraphicsEndImageContext();
+    
+    if (checkForPrintButton==2) {
+         [self.captureSession stopRunning];
+          }
+    
+     [self    testMethod:nil];
+    
+    
+    
 }
 
 
