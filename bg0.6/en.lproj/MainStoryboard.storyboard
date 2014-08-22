@@ -13,12 +13,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash screen1.png" id="IVW-iv-7y5" userLabel="BackGround">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new morven KV_AW.png" id="IVW-iv-7y5" userLabel="BackGround">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3qv-dQ-QUc" userLabel="StartButtton">
-                                <rect key="frame" x="722" y="343" width="220" height="81"/>
+                                <rect key="frame" x="689" y="504" width="220" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="Start BUTTON.png">
@@ -32,10 +32,6 @@
                                     <segue destination="GGS-dh-YDf" kind="modal" modalTransitionStyle="coverVertical" id="cQU-Jq-JSI"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morven strip.png" id="Mwy-cv-DwO">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -58,14 +54,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Start interface blank.png" id="htd-LV-r2O">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection screen bg.png" id="htd-LV-r2O">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="36j-Y9-agh">
-                                <rect key="frame" x="82" y="167" width="348" height="339"/>
+                                <rect key="frame" x="724" y="346" width="214" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="self.png">
+                                <state key="normal" backgroundImage="self button.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -73,7 +69,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3p1-sj-1kT">
-                                <rect key="frame" x="606" y="167" width="348" height="339"/>
+                                <rect key="frame" x="724" y="458" width="214" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="with friend.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,10 +78,6 @@
                                     <segue destination="opE-KM-YBi" kind="modal" id="Vjk-cc-Gub"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morven strip.png" id="cou-Ui-wXI">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -112,7 +104,7 @@
                                 <rect key="frame" x="192" y="52" width="640" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="interface.png" id="X1J-4c-Yn0" userLabel="BackGround">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="blank bg self screen.png" id="X1J-4c-Yn0" userLabel="BackGround">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -140,7 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AL6-gS-wx7" userLabel="camera">
-                                <rect key="frame" x="457" y="529" width="127" height="84"/>
+                                <rect key="frame" x="457" y="509" width="127" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="camera button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -151,7 +143,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xwk-kT-Vbq" userLabel="Print">
-                                <rect key="frame" x="587" y="528" width="106" height="85"/>
+                                <rect key="frame" x="587" y="508" width="106" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="print button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -162,7 +154,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tLc-VH-lrM" userLabel="Text">
-                                <rect key="frame" x="351" y="528" width="102" height="85"/>
+                                <rect key="frame" x="351" y="509" width="102" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="text button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -232,10 +224,6 @@
                                     <action selector="DownButton:" destination="xKP-zw-Iub" eventType="touchUpInside" id="YKD-iu-2aV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morven strip.png" id="e0K-WV-kyJ">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Text Here" textAlignment="center" minimumFontSize="17" id="bTc-VU-3ky">
                                 <rect key="frame" x="430" y="284" width="182" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -258,7 +246,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c6Z-d0-ICD" userLabel="Preview">
-                                <rect key="frame" x="27" y="532" width="214" height="76"/>
+                                <rect key="frame" x="714" y="532" width="135" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="preview.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,6 +254,13 @@
                                 <connections>
                                     <action selector="Preview" destination="xKP-zw-Iub" eventType="touchUpInside" id="HJ9-Wf-BvH"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dO3-N2-5PR" userLabel="Reset">
+                                <rect key="frame" x="865" y="532" width="135" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="reset.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -299,7 +294,15 @@
                                 <rect key="frame" x="196" y="46" width="640" height="480"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="new interface.png" id="4MW-HF-7qu" userLabel="BackGround">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ule-Ms-vCC" userLabel="leftCrop">
+                                <rect key="frame" x="196" y="46" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XFU-xC-MqI" userLabel="rightCrop">
+                                <rect key="frame" x="516" y="46" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="blank bg self screen.png" id="4MW-HF-7qu" userLabel="BackGround">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -311,14 +314,14 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mU2-My-qf4" userLabel="Text">
-                                <rect key="frame" x="351" y="529" width="102" height="85"/>
+                                <rect key="frame" x="351" y="508" width="102" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="text button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bx5-xA-MbX" userLabel="ZoomOut">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Bx5-xA-MbX" userLabel="ZoomOut">
                                 <rect key="frame" x="834" y="148" width="60" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="zoom out button.png">
@@ -328,7 +331,7 @@
                                     <action selector="ZoomOut:" destination="opE-KM-YBi" eventType="touchUpInside" id="4bh-Jc-ft4"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ka-cr-RjN" userLabel="ZoomIn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3ka-cr-RjN" userLabel="ZoomIn">
                                 <rect key="frame" x="834" y="181" width="61" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="zoom in button.png">
@@ -338,7 +341,7 @@
                                     <action selector="ZoomIn:" destination="opE-KM-YBi" eventType="touchUpInside" id="J9t-WO-u7j"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OxC-Pd-Efr" userLabel="Left">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OxC-Pd-Efr" userLabel="Left">
                                 <rect key="frame" x="835" y="230" width="60" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Arrow left button.png">
@@ -348,7 +351,7 @@
                                     <action selector="LeftButton:" destination="opE-KM-YBi" eventType="touchUpInside" id="lSF-qw-z1v"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aLW-39-OSl" userLabel="Right">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aLW-39-OSl" userLabel="Right">
                                 <rect key="frame" x="835" y="269" width="60" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Arrow right button.png">
@@ -358,7 +361,7 @@
                                     <action selector="RightButton:" destination="opE-KM-YBi" eventType="touchUpInside" id="KA3-XM-4fQ"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="twZ-ia-ChT" userLabel="Up">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="twZ-ia-ChT" userLabel="Up">
                                 <rect key="frame" x="835" y="320" width="60" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Arrow up button.png">
@@ -368,7 +371,7 @@
                                     <action selector="UpButton:" destination="opE-KM-YBi" eventType="touchUpInside" id="LhK-Xe-XEC"/>
                                 </connections>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="meZ-f9-CeM" userLabel="Down">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="meZ-f9-CeM" userLabel="Down">
                                 <rect key="frame" x="835" y="362" width="60" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="Arrow down button.png">
@@ -378,10 +381,6 @@
                                     <action selector="DownButton:" destination="opE-KM-YBi" eventType="touchUpInside" id="cLu-1n-BCv"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morven strip.png" id="N16-LD-gsW">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="face.png" id="ceB-vd-a2F" userLabel="Template">
                                 <rect key="frame" x="4" y="-98" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -391,7 +390,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eIj-T6-zZr" userLabel="Print">
-                                <rect key="frame" x="588" y="527" width="106" height="87"/>
+                                <rect key="frame" x="588" y="508" width="106" height="87"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="print button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -399,7 +398,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="d4b-oT-JLh" userLabel="camera">
-                                <rect key="frame" x="458" y="528" width="127" height="86"/>
+                                <rect key="frame" x="458" y="508" width="127" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" backgroundImage="camera button.png">
                                     <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -410,7 +409,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hvN-fz-vrK" userLabel="PreviewButton">
-                                <rect key="frame" x="51" y="534" width="217" height="76"/>
+                                <rect key="frame" x="709" y="527" width="135" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="preview.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -420,7 +419,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HGM-D9-TgY" userLabel="Merge">
-                                <rect key="frame" x="768" y="534" width="223" height="76"/>
+                                <rect key="frame" x="185" y="528" width="135" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="merge.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -439,6 +438,20 @@
                                     <segue destination="NO4-L6-jdW" kind="modal" id="7LU-5V-1rD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N2a-lU-ZJO" userLabel="Home">
+                                <rect key="frame" x="20" y="528" width="135" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back.png" backgroundImage="back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vWc-vK-fca" userLabel="Reset">
+                                <rect key="frame" x="869" y="527" width="135" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="reset.png" backgroundImage="reset.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -446,7 +459,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="cameraImageView" destination="Dp6-BW-pRr" id="3Aj-cj-ifD"/>
+                        <outlet property="leftCrop" destination="ule-Ms-vCC" id="wQp-ZD-S0Z"/>
                         <outlet property="previewView" destination="oLC-Sc-ySA" id="9kx-nr-iMY"/>
+                        <outlet property="rightCrop" destination="XFU-xC-MqI" id="Gfs-Qf-iWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Uk-P5-Llg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,7 +476,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="MorvenNewKV.png" id="JZH-HF-xSh">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="new morven KV_AW.png" id="JZH-HF-xSh">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -496,22 +511,21 @@
         <image name="Arrow left button.png" width="60" height="39"/>
         <image name="Arrow right button.png" width="60" height="38"/>
         <image name="Arrow up button.png" width="60" height="39"/>
-        <image name="MorvenNewKV.png" width="1024" height="768"/>
         <image name="Start BUTTON.png" width="210" height="71"/>
-        <image name="Start interface blank.png" width="1024" height="768"/>
+        <image name="back.png" width="135" height="48"/>
+        <image name="blank bg self screen.png" width="1024" height="768"/>
         <image name="camera button.png" width="125" height="84"/>
         <image name="face.png" width="1024" height="768"/>
-        <image name="interface.png" width="1024" height="768"/>
         <image name="merge.png" width="214" height="76"/>
-        <image name="morven strip.png" width="1024" height="72"/>
-        <image name="new interface.png" width="1024" height="768"/>
+        <image name="new morven KV_AW.png" width="1024" height="768"/>
         <image name="preview.png" width="214" height="76"/>
         <image name="print button.png" width="107" height="85"/>
         <image name="reference.png" width="1024" height="768"/>
-        <image name="self.png" width="348" height="339"/>
-        <image name="splash screen1.png" width="1024" height="768"/>
+        <image name="reset.png" width="135" height="48"/>
+        <image name="selection screen bg.png" width="1024" height="768"/>
+        <image name="self button.png" width="214" height="76"/>
         <image name="text button.png" width="103" height="85"/>
-        <image name="with friend.png" width="348" height="339"/>
+        <image name="with friend.png" width="214" height="76"/>
         <image name="zoom in button.png" width="60" height="35"/>
         <image name="zoom out button.png" width="60" height="36"/>
     </resources>

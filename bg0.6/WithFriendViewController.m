@@ -96,31 +96,89 @@
 
 - (IBAction)LeftButton:(UIButton *)sender {
     
-    _x -= 10;
+    if (checkForPrintButton==1) {
+        
+        _x -= 10;
+        leftCrop.center=CGPointMake(_x,leftCrop.center.y);
+        
+    }else if (checkForPrintButton==2){
+        
+        
+        _x1 -= 10;
+        rightCrop.center=CGPointMake(_x1,rightCrop.center.y);
+        
+        
+    }
     
-    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+    
+    
+    
+ //   self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
 }
 
 - (IBAction)RightButton:(UIButton *)sender {
-    _x += 10;
     
-    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+    if (checkForPrintButton==1) {
+        
+        _x += 10;
+        leftCrop.center=CGPointMake(_x,leftCrop.center.y);
+        
+    }else if (checkForPrintButton==2){
+        
+        
+        _x1 += 10;
+        rightCrop.center=CGPointMake(_x1,rightCrop.center.y);
+        
+        
+    }
+    
+//    _x += 10;
+//    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
     
 }
 
 - (IBAction)UpButton:(UIButton *)sender {
     
-    _y -= 10;
+  
+    if (checkForPrintButton==1) {
+        
+         _y -= 10;
+        leftCrop.center=CGPointMake(leftCrop.center.x,_y);
+        
+    }else if (checkForPrintButton==2){
+        
+        
+       _y1 -= 10;
+        rightCrop.center=CGPointMake(rightCrop.center.x,_y1);
+        
+        
+    }
     
-    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
-    NSLog(@"%f",self.cameraImageView.center.x);
+    
+    
+//   
+//    
+//    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+//    NSLog(@"%f",self.cameraImageView.center.x);
 }
 
 - (IBAction)DownButton:(UIButton *)sender {
     
-    _y += 10;
+    if (checkForPrintButton==1) {
+        
+        _y += 10;
+        leftCrop.center=CGPointMake(leftCrop.center.x,_y);
+        
+    }else if (checkForPrintButton==2){
+        
+        
+        _y1 += 10;
+        rightCrop.center=CGPointMake(rightCrop.center.x,_y1);
+        
+        
+    }
     
-    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+//  self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
 }
 
 - (IBAction)AddTextBUtton:(UIButton *)sender {
@@ -178,6 +236,14 @@
   UIImage * image = [UIImage imageWithCGImage:imageRef];
    CGImageRelease(imageRef);
     
+    if (checkForPrintButton==1) {
+        
+        leftCrop.image=image;
+    }else if (checkForPrintButton==2){
+        
+        rightCrop.image=image;
+    }
+    
     
     
     [image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
@@ -209,11 +275,11 @@
     UIGraphicsBeginImageContext( newSize );
     
     
-    CGRect baseRectF1=CGRectMake(100, 0, 320, 480);
-    CGRect baseRectF2=CGRectMake(320, 0, 320, 480);
+    CGRect baseRectF1=CGRectMake(_x-100, 0, 320, 480);
+    CGRect baseRectF2=CGRectMake(_x1-320, 0, 320, 480);
     
-    CGRect printableRect1=CGRectMake(100,0, 320, 480);
-    CGRect printableRect2=CGRectMake(320,0, 320, 480);
+    CGRect printableRect1=CGRectMake(_x-100 ,0, 320, 480);
+    CGRect printableRect2=CGRectMake(_x1-320 ,0, 320, 480);
     
     CGImageRef imageRef = CGImageCreateWithImageInRect([buffer CGImage], baseRectF1);
     CGImageRef imageRef2 = CGImageCreateWithImageInRect([buffer1 CGImage],baseRectF2);
@@ -232,6 +298,15 @@
     mergedImage=UIGraphicsGetImageFromCurrentImageContext();
     
     UIGraphicsEndImageContext();
+    
+    
+    
+    
+    
+    NSLog(@"--LeftCropImageX : %f ----LeftCropImageY : %f -- ",leftCrop.center.x,leftCrop.center.y);
+    NSLog(@"--RightCropImageX : %f ----RightCropImageY : %f -- ",rightCrop.center.x,rightCrop.center.y);
+    
+    
     
 }
 
@@ -722,8 +797,13 @@
     
     
     
-    _x = self.cameraImageView.center.x;
-    _y=self.cameraImageView.center.y;
+    _x = leftCrop.center.x;
+    _y = leftCrop.center.y;
+    
+    _x1=rightCrop.center.x;
+    _y1=rightCrop.center.y;
+    
+
     
     UIGraphicsEndImageContext();
     

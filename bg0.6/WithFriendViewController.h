@@ -38,6 +38,8 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     //===============================================
     
     
+    __weak IBOutlet UIImageView *leftCrop;
+    __weak IBOutlet UIImageView *rightCrop;
     
     IBOutlet UIImageView *previewView;
     IBOutlet UIImageView *YellowBase;
@@ -57,7 +59,7 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     
     int _colorTag;
     int _instrumentTag;
-    float _x,_y,_xforText,_yforText;
+    float _x,_y,_xforText,_yforText,_x1,_y1;
     int rectX,rectY,rectForTextX,rectForTextY;
     CGFloat newScale,labelNewScale;
     int rectScale,labelRectScale,fontScale;

@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.h"
-            timestampString = "429527812.404811"
+            timestampString = "430413492.962914"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "@interface WithFriendViewController"
             landmarkType = "2">
             <Locations>
@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "429530009.688541"
+            timestampString = "430415805.841012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "645"
-            endingLineNumber = "645"
+            startingLineNumber = "720"
+            endingLineNumber = "720"
             landmarkName = "-setupCamera"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,12 +278,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "429530009.688541"
+            timestampString = "430415805.841012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "644"
-            endingLineNumber = "644"
+            startingLineNumber = "719"
+            endingLineNumber = "719"
             landmarkName = "-setupCamera"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bg0.6/WithFriendViewController.m"
+            timestampString = "430415551.388184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "-Test2Method:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
