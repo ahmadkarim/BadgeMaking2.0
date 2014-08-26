@@ -85,6 +85,8 @@
     newScale += 0.1 ;
     CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
     self.cameraImageView.transform=transform;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedX=self.cameraImageView.frame.origin.x;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedY=self.cameraImageView.frame.origin.y;
 }
 
 - (IBAction)ZoomOut:(UIButton *)sender {
@@ -92,6 +94,8 @@
     newScale -= 0.1 ;
     CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
     self.cameraImageView.transform=transform;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedX=self.cameraImageView.frame.origin.x;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedY=self.cameraImageView.frame.origin.y;
 }
 
 
@@ -130,8 +134,21 @@
     [self.view addSubview:textField];
 }
 
-
-
+- (IBAction)homeButton:(id)sender {
+    
+    
+    self.cameraImageView.image=nil;
+    self.cameraImageView.hidden=YES;
+    
+   // [self.view.layer insertSublayer:self.previewLayer atIndex:2];
+    [self.previewLayer removeFromSuperlayer];
+    [self setupCamera];
+    
+ //   [self.captureSession startRunning];
+    
+    
+    
+}
 
 
 
@@ -153,6 +170,8 @@
 }
 
 - (IBAction)ResetButton {
+    
+    
     
     [baseViewLABEL removeFromSuperview];
     [baseViewINSTRUMENT removeFromSuperview];
@@ -223,7 +242,9 @@
       baseRect=CGRectMake(235, 140, 200, 200);
     
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
+   
     printableGrafixRect=CGRectMake(400,275, 240, 220);
+    
     printableText=CGRectMake((rectForTextX-20), rectForTextY+50, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
     
     //printableText=CGRectMake(0, 50, 200, 200);
@@ -236,6 +257,8 @@
      CGRect  printableRect1=CGRectMake(50,50, 300, 300);
     
  //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+  
+   
     
      [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
@@ -402,6 +425,9 @@
 
 - (IBAction)Preview {
     
+    NSLog(@"width: %f  height: %f",self.cameraImageView.frame.size.width ,self.cameraImageView.frame.size.height);
+    
+      NSLog(@"rigin X: %f  rigin Y: %f",self.cameraImageView.frame.origin.x ,self.cameraImageView.frame.origin.y);
     
     //////////////////////////////////////////////////////////////
     _xforText=baseViewLABEL.frame.origin.x - 345;
@@ -419,7 +445,13 @@
     UIGraphicsBeginImageContext( newSize );
   //  CGContextRef  context = UIGraphicsGetCurrentContext();
    
-    baseRect=CGRectMake(235, 140, 200, 200);
+    
+    /*taking the center square of the camera priveiw to print  and preview.
+    i did this by subtracting from the origin , the dispalcment in any direction and then moving the image in the preview exaxctly that many points , in case of zoom in and out the origin will change every time i do zoom in or out , so i have subtractes from self.cameraimageview.oringi.x so that it will get the new origin cordintaes every time user zooms in or out */
+   
+    
+    baseRect=CGRectMake( 170 + (192 - self.cameraImageView.frame.origin.x),  80 + (52 -self.cameraImageView.frame.origin.y), 300+( 640 - self.cameraImageView.frame.size.width ), 300 -(480 - self.cameraImageView.frame.size.height));
+    
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
@@ -795,9 +827,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Get the new view controller using [segue destinationViewController].
+    if (buffer) {
     PreviewScreenViewController * Pvc = [segue destinationViewController];
     Pvc.previewImage=buffer;
-    
+    }
     // Pass the selected object to the new view controller.
 }
 

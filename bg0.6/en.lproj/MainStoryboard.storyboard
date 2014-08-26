@@ -261,6 +261,29 @@
                                 <state key="normal" image="reset.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="ResetButton" destination="xKP-zw-Iub" eventType="touchUpInside" id="w8B-V3-roG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fHD-1w-H2C" userLabel="back">
+                                <rect key="frame" x="20" y="532" width="140" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="GGS-dh-YDf" kind="modal" id="CVj-Vp-Sx8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bIE-YL-fiP">
+                                <rect key="frame" x="183" y="532" width="135" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="home.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="homeButton:" destination="xKP-zw-Iub" eventType="touchUpInside" id="M9b-kr-n72"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -516,9 +539,10 @@
         <image name="blank bg self screen.png" width="1024" height="768"/>
         <image name="camera button.png" width="125" height="84"/>
         <image name="face.png" width="1024" height="768"/>
+        <image name="home.png" width="135" height="48"/>
         <image name="merge.png" width="214" height="76"/>
         <image name="new morven KV_AW.png" width="1024" height="768"/>
-        <image name="preview.png" width="214" height="76"/>
+        <image name="preview.png" width="135" height="48"/>
         <image name="print button.png" width="107" height="85"/>
         <image name="reference.png" width="1024" height="768"/>
         <image name="reset.png" width="135" height="48"/>
@@ -535,6 +559,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7LU-5V-1rD"/>
+        <segue reference="CVj-Vp-Sx8"/>
+        <segue reference="NMb-SB-hYx"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -89,6 +89,9 @@
     IBOutlet UITextField *textFeildDifferent;
     NSTimer * timer;
     
+    float selfCamerImageViewOriginXValueAfterZooButtonPressedX;
+    float selfCamerImageViewOriginXValueAfterZooButtonPressedY;
+    
     
     
 }
