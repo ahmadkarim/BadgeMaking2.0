@@ -210,105 +210,6 @@
 }
 
 
-- (IBAction)testMethod:(id)sender {
-    
-    if (checkForPrintButton==1) {
-         NSLog(@" teset Method rect %d ",checkForPrintButton);
-        baseRect=CGRectMake(0, 0, 320, 480);
-        printableRect=CGRectMake(100,100, 320, 480);
-        
-    }else if (checkForPrintButton==2){
-        
-         NSLog(@" teset Method rect %d ",checkForPrintButton);
-        baseRect=CGRectMake(320, 0, 320, 480);
-        printableRect=CGRectMake(420,100, 320, 480);
-        
-    }
-    
-    
-    
-    CGSize newSize = CGSizeMake(1024,768);
-    
-    UIGraphicsBeginImageContext( newSize );
-
-     CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
-    
-  UIImage * image = [UIImage imageWithCGImage:imageRef];
-   CGImageRelease(imageRef);
-    
-    if (checkForPrintButton==1) {
-        
-        leftCrop.image=image;
-    }else if (checkForPrintButton==2){
-        
-        rightCrop.image=image;
-    }
-    
-    
-    
-    [image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    
-    
-    if (checkForPrintButton==1) {
-         NSLog(@" teset Method BBuffer %d ",checkForPrintButton);
-        buffer= UIGraphicsGetImageFromCurrentImageContext();
-       //  previewView.image=buffer;
-    }else if (checkForPrintButton==2){
-         NSLog(@" teset Method buffer %d ",checkForPrintButton);
-        buffer1= UIGraphicsGetImageFromCurrentImageContext();
-       //  previewView.image=buffer1;
-    }
-   
-    
-    UIGraphicsEndImageContext();
-    
-    
-   
-    previewView.hidden=NO;
-    
-}
-
-
--(IBAction)Test2Method:(id)sender{
-    
-    CGSize newSize = CGSizeMake(1024,768);
-    UIGraphicsBeginImageContext( newSize );
-    
-    
-    CGRect baseRectF1=CGRectMake(_x-100, 0, 320, 480);
-    CGRect baseRectF2=CGRectMake(_x1-320, 0, 320, 480);
-    
-    CGRect printableRect1=CGRectMake(_x-100 ,0, 320, 480);
-    CGRect printableRect2=CGRectMake(_x1-320 ,0, 320, 480);
-    
-    CGImageRef imageRef = CGImageCreateWithImageInRect([buffer CGImage], baseRectF1);
-    CGImageRef imageRef2 = CGImageCreateWithImageInRect([buffer1 CGImage],baseRectF2);
-    
-    UIImage * image = [UIImage imageWithCGImage:imageRef];
-    UIImage * image2 = [UIImage imageWithCGImage:imageRef2];
-    
-    CGImageRelease(imageRef);
-    CGImageRelease(imageRef2);
-    
-    
-    
-    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
-    [image2 drawInRect:printableRect2 blendMode:kCGBlendModeNormal alpha:1.0];
-    
-    mergedImage=UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    
-    
-    
-    
-    NSLog(@"--LeftCropImageX : %f ----LeftCropImageY : %f -- ",leftCrop.center.x,leftCrop.center.y);
-    NSLog(@"--RightCropImageX : %f ----RightCropImageY : %f -- ",rightCrop.center.x,rightCrop.center.y);
-    
-    
-    
-}
 
 
 
@@ -519,12 +420,47 @@
 
 
 
+
+- (void)viewDidUnload {
+    UIGraphicsEndImageContext();
+    YellowBase = nil;
+
+
+    previewView = nil;
+    textFeildDifferent = nil;
+    [super viewDidUnload];
+}
+
+
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    NSLog(@"DONE EDITING");
+    textTouchEnabled=YES;
+//    [self DoneEditing];
+}
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    NSLog(@"Begin EDITING");
+    textTouchEnabled=NO;
+    
+    
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField_l
+{
+    [textField_l resignFirstResponder];
+    return YES;
+}
+
+
+
+
 - (IBAction)Preview {
     
     
     //////////////////////////////////////////////////////////////
-  //  _xforText=baseViewLABEL.frame.origin.x - 345;
- //   _yforText=baseViewLABEL.frame.origin.y - 131;
+    //  _xforText=baseViewLABEL.frame.origin.x - 345;
+    //   _yforText=baseViewLABEL.frame.origin.y - 131;
     rectForTextX=(_xforText + 50) * 0.90;
     rectForTextY=(_yforText + 50) * 0.90;
     
@@ -532,13 +468,17 @@
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
     
-     UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
+    UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
+     UIGraphicsBeginImageContext( newSize );
     
-    UIGraphicsBeginImageContext( newSize );
+    
     //  CGContextRef  context = UIGraphicsGetCurrentContext();
     
-    baseRect=CGRectMake(320, 240, 200, 200);
+
+    baseRect=CGRectMake(320, 140, 300, 300);
+
+   
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
@@ -610,38 +550,105 @@
 
 
 
-- (void)viewDidUnload {
+- (IBAction)testMethod:(id)sender {
+    
+    if (checkForPrintButton==1) {
+        NSLog(@" teset Method rect %d ",checkForPrintButton);
+        baseRect=CGRectMake(0, 0, 320, 480);
+        printableRect=CGRectMake(100,100, 320, 480);
+        
+    }else if (checkForPrintButton==2){
+        
+        NSLog(@" teset Method rect %d ",checkForPrintButton);
+        baseRect=CGRectMake(320, 0, 320, 480);
+        printableRect=CGRectMake(420,100, 320, 480);
+        
+    }
+    
+    
+    
+    CGSize newSize = CGSizeMake(1024,768);
+    
+    UIGraphicsBeginImageContext( newSize );
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    
+    if (checkForPrintButton==1) {
+        
+        leftCrop.image=image;
+    }else if (checkForPrintButton==2){
+        
+        rightCrop.image=image;
+    }
+    
+    
+    
+    [image drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    
+    if (checkForPrintButton==1) {
+        NSLog(@" teset Method BBuffer %d ",checkForPrintButton);
+        buffer= UIGraphicsGetImageFromCurrentImageContext();
+        //  previewView.image=buffer;
+    }else if (checkForPrintButton==2){
+        NSLog(@" teset Method buffer %d ",checkForPrintButton);
+        buffer1= UIGraphicsGetImageFromCurrentImageContext();
+        //  previewView.image=buffer1;
+    }
+    
+    
     UIGraphicsEndImageContext();
-    YellowBase = nil;
-
-
-    previewView = nil;
-    textFeildDifferent = nil;
-    [super viewDidUnload];
-}
-
-
-
--(void)textFieldDidEndEditing:(UITextField *)textField{
-    NSLog(@"DONE EDITING");
-    textTouchEnabled=YES;
-//    [self DoneEditing];
-}
-- (void)textFieldDidBeginEditing:(UITextField *)textField{
     
-    NSLog(@"Begin EDITING");
-    textTouchEnabled=NO;
     
+    
+    previewView.hidden=NO;
     
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField_l
-{
-    [textField_l resignFirstResponder];
-    return YES;
+
+-(IBAction)Test2Method:(id)sender{
+    
+    CGSize newSize = CGSizeMake(1024,768);
+    UIGraphicsBeginImageContext( newSize );
+    
+    
+    CGRect baseRectF1=CGRectMake(_x-100, 0, 320, 480);
+    CGRect baseRectF2=CGRectMake(_x1-320, 0, 320, 480);
+    
+    CGRect printableRect1=CGRectMake(_x-100 ,0, 320, 480);
+    CGRect printableRect2=CGRectMake(_x1-320 ,0, 320, 480);
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([buffer CGImage], baseRectF1);
+    CGImageRef imageRef2 = CGImageCreateWithImageInRect([buffer1 CGImage],baseRectF2);
+    
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    UIImage * image2 = [UIImage imageWithCGImage:imageRef2];
+    
+    CGImageRelease(imageRef);
+    CGImageRelease(imageRef2);
+    
+    
+    
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [image2 drawInRect:printableRect2 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    mergedImage=UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    
+    
+    
+    
+    NSLog(@"--LeftCropImageX : %f ----LeftCropImageY : %f -- ",leftCrop.center.x,leftCrop.center.y);
+    NSLog(@"--RightCropImageX : %f ----RightCropImageY : %f -- ",rightCrop.center.x,rightCrop.center.y);
+    
+    
+    
 }
-
-
 
 
 //===================================CAMERA =======================
@@ -749,13 +756,7 @@
      CGImageRelease(imageRef);
      }*/
     
-    
-    
-    //    UIImage *cameraScreenReplace = [UIImage imageNamed:@"camera screen new.png"];
-    //    [CameraScreenReplace setImage:cameraScreenReplace];
-    //
-    
-    
+   
     
     CGRect A=CGRectMake(192,52, 640 , 480);
     self.cameraImageView.image = self.cameraImage;

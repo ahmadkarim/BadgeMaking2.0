@@ -441,9 +441,9 @@
     
     UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
-   
     UIGraphicsBeginImageContext( newSize );
-  //  CGContextRef  context = UIGraphicsGetCurrentContext();
+ 
+    //  CGContextRef  context = UIGraphicsGetCurrentContext();
    
     
     /*taking the center square of the camera priveiw to print  and preview.

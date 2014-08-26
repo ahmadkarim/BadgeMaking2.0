@@ -37,7 +37,9 @@
 		17D11B921621CFA2008D7FBA /* AKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B911621CFA2008D7FBA /* AKViewController.m */; };
 		17D11B9A1621D0ED008D7FBA /* printViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D11B991621D0ED008D7FBA /* printViewController.m */; };
 		17DB3D2D19ACD4CC009253C7 /* preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DB3D2C19ACD4CC009253C7 /* preview.png */; };
-		17DE8C6D199A2740001A9569 /* merge.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DE8C6C199A2740001A9569 /* merge.png */; };
+		17DB3D2F19ACE2A0009253C7 /* merge.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DB3D2E19ACE2A0009253C7 /* merge.png */; };
+		17DB3D3119ACECF6009253C7 /*  MorvenStrip.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DB3D3019ACECF6009253C7 /*  MorvenStrip.png */; };
+		17DB3D3319ACED07009253C7 /* popup msg.png in Resources */ = {isa = PBXBuildFile; fileRef = 17DB3D3219ACED07009253C7 /* popup msg.png */; };
 		F5334F7B194663900087F4EE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7A194663900087F4EE /* QuartzCore.framework */; };
 		F5334F7D194663AE0087F4EE /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7C194663AE0087F4EE /* CoreVideo.framework */; };
 		F5334F7F194663BA0087F4EE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5334F7E194663BA0087F4EE /* CoreMedia.framework */; };
@@ -102,7 +104,9 @@
 		17D11B981621D0ED008D7FBA /* printViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = printViewController.h; sourceTree = "<group>"; };
 		17D11B991621D0ED008D7FBA /* printViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = printViewController.m; sourceTree = "<group>"; };
 		17DB3D2C19ACD4CC009253C7 /* preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview.png; sourceTree = "<group>"; };
-		17DE8C6C199A2740001A9569 /* merge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = merge.png; sourceTree = "<group>"; };
+		17DB3D2E19ACE2A0009253C7 /* merge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = merge.png; sourceTree = "<group>"; };
+		17DB3D3019ACECF6009253C7 /*  MorvenStrip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = " MorvenStrip.png"; sourceTree = "<group>"; };
+		17DB3D3219ACED07009253C7 /* popup msg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popup msg.png"; sourceTree = "<group>"; };
 		F5334F7A194663900087F4EE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F5334F7C194663AE0087F4EE /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		F5334F7E194663BA0087F4EE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -221,6 +225,8 @@
 		17D11B7C1621CFA2008D7FBA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				17DB3D3019ACECF6009253C7 /*  MorvenStrip.png */,
+				17DB3D3219ACED07009253C7 /* popup msg.png */,
 				170C468E19A77B760077163C /* Selection Screen */,
 				17DE8C69199A270F001A9569 /* WithFriendScren */,
 				17B11AEA19518378005AD553 /* First Screen */,
@@ -239,8 +245,8 @@
 		17DE8C69199A270F001A9569 /* WithFriendScren */ = {
 			isa = PBXGroup;
 			children = (
+				17DB3D2E19ACE2A0009253C7 /* merge.png */,
 				17DB3D2C19ACD4CC009253C7 /* preview.png */,
-				17DE8C6C199A2740001A9569 /* merge.png */,
 				1750D4DF1998EBE0006BD83A /* squareCircle.png */,
 				1750D4D11998D5EE006BD83A /* face.png */,
 			);
@@ -346,6 +352,7 @@
 				17D11B881621CFA2008D7FBA /* Default.png in Resources */,
 				F5B333AE194901C200D9043D /* zoom out button press.png in Resources */,
 				170C469019A77B850077163C /* selection screen bg.png in Resources */,
+				17DB3D3119ACECF6009253C7 /*  MorvenStrip.png in Resources */,
 				17D11B8A1621CFA2008D7FBA /* Default@2x.png in Resources */,
 				17B11AEE19518391005AD553 /* Start BUTTON press.png in Resources */,
 				17B11AF019518403005AD553 /* Start BUTTON.png in Resources */,
@@ -354,6 +361,7 @@
 				1750D4E01998EBE0006BD83A /* squareCircle.png in Resources */,
 				17D11B8F1621CFA2008D7FBA /* MainStoryboard.storyboard in Resources */,
 				17DB3D2D19ACD4CC009253C7 /* preview.png in Resources */,
+				17DB3D2F19ACE2A0009253C7 /* merge.png in Resources */,
 				F5B333AF194901C200D9043D /* zoom out button.png in Resources */,
 				170C469A19A784410077163C /* back.png in Resources */,
 				170C469619A77D560077163C /* blank bg self screen.png in Resources */,
@@ -367,8 +375,8 @@
 				F5B333A3194901C200D9043D /* Arrow up button.png in Resources */,
 				170C469319A77C060077163C /* self button.png in Resources */,
 				170C469C19A7844E0077163C /* home.png in Resources */,
-				17DE8C6D199A2740001A9569 /* merge.png in Resources */,
 				F5B3339F194901C200D9043D /* Arrow left button.png in Resources */,
+				17DB3D3319ACED07009253C7 /* popup msg.png in Resources */,
 				170C469419A77C060077163C /* with friend.png in Resources */,
 				F5B333A5194901C200D9043D /* camera button.png in Resources */,
 				F5B333A0194901C200D9043D /* Arrow right button press.png in Resources */,

@@ -461,12 +461,15 @@
                                     <segue destination="NO4-L6-jdW" kind="modal" id="7LU-5V-1rD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N2a-lU-ZJO" userLabel="Home">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N2a-lU-ZJO" userLabel="Back">
                                 <rect key="frame" x="20" y="528" width="135" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back.png" backgroundImage="back.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="GGS-dh-YDf" kind="modal" id="rRD-na-bfG"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vWc-vK-fca" userLabel="Reset">
                                 <rect key="frame" x="869" y="527" width="135" height="48"/>
@@ -540,7 +543,7 @@
         <image name="camera button.png" width="125" height="84"/>
         <image name="face.png" width="1024" height="768"/>
         <image name="home.png" width="135" height="48"/>
-        <image name="merge.png" width="214" height="76"/>
+        <image name="merge.png" width="135" height="48"/>
         <image name="new morven KV_AW.png" width="1024" height="768"/>
         <image name="preview.png" width="135" height="48"/>
         <image name="print button.png" width="107" height="85"/>
