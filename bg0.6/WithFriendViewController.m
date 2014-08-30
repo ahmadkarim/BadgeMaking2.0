@@ -228,7 +228,9 @@
     fontScale=labelNewScale * 25;
     //////////////////////////////////////////////////////////////
     
-    
+    UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
+    UIImage * template1=[UIImage imageNamed:@"best friend.png"];
+
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
@@ -237,24 +239,39 @@
     
     // UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0);
     
-    baseRect=CGRectMake(235, 140, 200, 200);
+ //   baseRect=CGRectMake(235, 140, 200, 200);
+   
+    baseRect=CGRectMake(265, 191, 300, 300);
     
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
-    printableGrafixRect=CGRectMake(400,275, 240, 220);
+    
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+    // REct for BEST FRIEND template"
+    
+    printableGrafixRect=CGRectMake(70,210, 205, 75);
+    
+    ////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////
+    
+    
     printableText=CGRectMake((rectForTextX-20), rectForTextY+50, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
     
     //printableText=CGRectMake(0, 50, 200, 200);
     
     
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    CGImageRef imageRef = CGImageCreateWithImageInRect([mergedImage CGImage], baseRect);
+    
     UIImage * image = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
     
-    CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    CGRect  printableRect1=CGRectMake(50,50, 250, 250);
     
     //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+      [template1 drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1.0];
     
     
     //Atributes for string
@@ -469,6 +486,8 @@
     //////////////////////////////////////////////////////////////
     
     UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
+    UIImage * template1=[UIImage imageNamed:@"best friend.png"];
+
     CGSize newSize = CGSizeMake(1024,768);
      UIGraphicsBeginImageContext( newSize );
     
@@ -476,17 +495,29 @@
     //  CGContextRef  context = UIGraphicsGetCurrentContext();
     
 
-    baseRect=CGRectMake(320, 140, 300, 300);
+    baseRect=CGRectMake(265, 191, 300, 300);
+
 
    
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
-    printableGrafixRect=CGRectMake(350,225, 240, 220);
+       ////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////
+        //Rect for BEST FRIEND TEMPLATE"
+       printableGrafixRect=CGRectMake(75,330, 250, 100);
+      ////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////
+   
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
     
     
     CGImageRef imageRef = CGImageCreateWithImageInRect([mergedImage CGImage], baseRect);
+
+   
     UIImage * image = [UIImage imageWithCGImage:imageRef];
+
+  
     CGImageRelease(imageRef);
+
     
     /*  // CGRect  printableRect=CGRectMake(0,0, 200, 200);
      
@@ -528,6 +559,7 @@
     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
+    [template1 drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1.0];
     
     
     [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
