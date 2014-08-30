@@ -5,8 +5,9 @@
 //  Created by Ahmad Karim on 08/10/2012.
 //  Copyright (c) 2012 Ahmad Karim. All rights reserved.
 //
-
+//
 #import "MainViewController.h"
+#import "PreviewScreenViewController.h"
 
 @interface MainViewController ()
 
@@ -25,29 +26,19 @@
     return self;
 }
 
+
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [ColorView removeFromSuperview];
-    [GraphicsView removeFromSuperview];
-    [textView removeFromSuperview  ];
+    
+    [self setupCamera];
+    
+        [textView removeFromSuperview  ];
     [textField removeFromSuperview];
     
-    [self.view addSubview:baseColorView];
-    
-    baseImage=[UIImage imageNamed:@"White_Display_Badge.png"];
-    [baseColor setImage:baseImage];
-    
-    baseYellow=[UIImage imageNamed:@"yellow.png"];
-    baseRed=[UIImage imageNamed:@"red.png"];
-    baseBlue=[UIImage imageNamed:@"blue.png"];
-    baseWhite=[UIImage imageNamed:@"white.png"];
-    
-    DhoolImage=[UIImage imageNamed:@"dholak_Printable1.png"];
-    FluteImage=[UIImage imageNamed:@"Flute_Printable.png"];
-    GuitarImage=[UIImage imageNamed:@"Guitar_Printable.png"];
-    KeyboardImage=[UIImage imageNamed:@"Music_KeyBoard_Printable.png"];
     
     UIPinchGestureRecognizer *pinchRecognizer =[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchDetected:)];
     [self.view addGestureRecognizer:pinchRecognizer];
@@ -68,12 +59,13 @@
    // NSString *resultString = [[NSString alloc] initWithFormat: @"Pinch - scale = %f, velocity = %f",scale, velocity];
     
     NSLog(@"Pinch - scale = %f, velocity = %f",scale, velocity);
-       
+
     if (touchEnabled) {
         if ( (scale > 0.8) && (scale < 1.165) ) {
             newScale = scale;
            CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
             baseViewINSTRUMENT.transform = transform;
+             self.cameraImageView.transform=transform;
         }
     }
     
@@ -85,6 +77,74 @@
         }
     }
     
+    
+}
+
+- (IBAction)ZoomIn:(UIButton *)sender {
+    
+    newScale += 0.1 ;
+    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+    self.cameraImageView.layer.anchorPoint=CGPointMake(0.5, 0.5);
+    self.cameraImageView.transform=transform;
+    
+    selfCamerImageViewOriginXValueAfterZooButtonPressedX-=self.cameraImageView.frame.origin.x;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedY-=self.cameraImageView.frame.origin.y;
+   
+  NSLog(@"Diff X: %f  Diff Y: %f",selfCamerImageViewOriginXValueAfterZooButtonPressedX,selfCamerImageViewOriginXValueAfterZooButtonPressedY);
+     NSLog(@"rigin X: %f  rigin Y: %f",self.cameraImageView.frame.origin.x ,self.cameraImageView.frame.origin.y);
+    
+    
+}
+
+- (IBAction)ZoomOut:(UIButton *)sender {
+    
+    newScale -= 0.1 ;
+    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+    self.cameraImageView.transform=transform;
+    
+    selfCamerImageViewOriginXValueAfterZooButtonPressedX=self.cameraImageView.frame.origin.x;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedY=self.cameraImageView.frame.origin.y;
+}
+
+
+- (IBAction)LeftButton:(UIButton *)sender {
+    
+    _x -= 10;
+    
+    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+}
+
+- (IBAction)RightButton:(UIButton *)sender {
+    _x += 10;
+    
+    self.cameraImageView.center=CGPointMake(_x,self.cameraImageView.center.y);
+    
+}
+
+- (IBAction)UpButton:(UIButton *)sender {
+    
+    _y -= 10;
+    
+    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+    NSLog(@"%f",self.cameraImageView.center.x);
+}
+
+- (IBAction)DownButton:(UIButton *)sender {
+    
+    _y += 10;
+    
+    self.cameraImageView.center=CGPointMake(self.cameraImageView.center.x,_y);
+}
+
+- (IBAction)AddTextBUtton:(UIButton *)sender {
+    
+    textField.hidden=NO;
+    [self.view addSubview:textField];
+}
+
+- (IBAction)homeButton:(id)sender {
+    
+ 
     
 }
 
@@ -109,6 +169,20 @@
 
 - (IBAction)ResetButton {
     
+    
+    
+    self.cameraImageView.image=nil;
+    //  self.cameraImageView.hidden=YES;
+    
+    // [self.view.layer insertSublayer:self.previewLayer atIndex:2];
+    [self.previewLayer removeFromSuperlayer];
+    [self setupCamera];
+    
+    //   [self.captureSession startRunning];
+    
+    
+    
+    
     [baseViewLABEL removeFromSuperview];
     [baseViewINSTRUMENT removeFromSuperview];
     [baseViewCOLOR removeFromSuperview];
@@ -126,34 +200,7 @@
     
 }
 
-- (IBAction)Color {
-   //UIImage * image =[UIImage imageNamed:@"Interface_Yellow2.png"];
-   // [YellowBase setImage:image];
-    NSLog(@"in COLOR");
-    [firstView removeFromSuperview];
-    [GraphicsView removeFromSuperview];
-    [self.view addSubview:ColorView];
-   // [self.view addSubview:baseColor ];
 
-    
-    
-}
-
-- (IBAction)Graphics {
-    
-    [firstView removeFromSuperview];
-   // baseImage=UIGraphicsGetImageFromCurrentImageContext();
-   // baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    
-    [self.view addSubview:GraphicsView];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-   //  [self.view addSubview:baseColor ];
-    touchEnabled=YES;
-
-   
-}
 
 - (IBAction)TEXT {
    
@@ -181,80 +228,130 @@
 
 - (IBAction)Prints {
     
+    NSLog(@"Print Called");
+    
+    //////////////////////////////////////////////////////////////
+    _xforText=baseViewLABEL.frame.origin.x - 345;
+    _yforText=baseViewLABEL.frame.origin.y - 131;
+    rectForTextX=(_xforText + 50) * 0.90;
+    rectForTextY=(_yforText + 50) * 0.90;
+    
+    labelRectScale=labelNewScale *135;
+    fontScale=labelNewScale * 25;
+    //////////////////////////////////////////////////////////////
+
+     UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
     
     UIGraphicsBeginImageContext( newSize );
-    CGContextRef  context = UIGraphicsGetCurrentContext();
     
-    baseRect=CGRectMake(50, 50, 200, 200);
-    printableRect=CGRectMake(rectX+50,rectY+50,rectScale,rectScale);
+    
+    
+   // UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0);
+
+//      baseRect=CGRectMake(235, 140, 200, 200);
+    
+        baseRect=CGRectMake( 170 + (192 - self.cameraImageView.frame.origin.x),  80 + (52 -self.cameraImageView.frame.origin.y), 300,300);
+    
+    printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
+   
     printableGrafixRect=CGRectMake(400,275, 240, 220);
-    printableText=CGRectMake((rectForTextX-20)+50, rectForTextY+50, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
+    
+    printableText=CGRectMake((rectForTextX-20), rectForTextY, labelRectScale,labelRectScale);//CGRectMake(rectForTextX+50, rectForTextY+50, 136*.65, 36*.65);
     
     //printableText=CGRectMake(0, 50, 200, 200);
     
-    // CGRect  printableRect=CGRectMake(0,0, 200, 200);
     
-    if (_colorTag==1) {
-        [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_colorTag==2){
-        [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    }else if (_colorTag==3){
-        [baseRed drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    }else if (_colorTag==4){
-        [baseBlue drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-        
-    }
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+  /////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////
+    //  "Prinatble rect" : adjust this rectangle to adjust print on paper
     
+    CGRect  printableRect1=CGRectMake(50,50, 250, 250);
+  //////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////
+ //   [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+  
+   
     
-    if (_instrumentTag==1) {
-        [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==2){
-        [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==3){
-        [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==4){
-        [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }
-    
-    if (_colorTag==3 || _colorTag==4) {
-        CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
-        
-    }else{
-        CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
-        
-    }
+     [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+      [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
     
     
+    //Atributes for string
+ /*
+    NSMutableParagraphStyle *textStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+    textStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    textStyle.alignment = NSTextAlignmentCenter;
+ 
     
-    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
+  NSDictionary *dictionary = @{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:fontScale ] ,
+                                NSParagraphStyleAttributeName:textStyle
+                                ,NSForegroundColorAttributeName:[UIColor whiteColor] };
+    
+    [text drawInRect:printableText withAttributes:dictionary];
+*/
+    
+ 
+    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
+
+    
+  
+     buffer= UIGraphicsGetImageFromCurrentImageContext();
      
-     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+    
+    UIGraphicsEndImageContext();
+    
+    
+ /*    //   [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //   [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+     //   [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+
+      //  [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    
+
+      //  CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+        
+
+       // CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+        
+  
+    
+    
+    
+  //  [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+
+
     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
     
-    previewImage=UIGraphicsGetImageFromCurrentImageContext();
+ //   previewImage=UIGraphicsGetImageFromCurrentImageContext();
     
    // [previewView setImage:previewImage];
    //  [self.view addSubview:previewView];
     
-    UIGraphicsEndImageContext();
+ //   UIGraphicsEndImageContext();
     // NSLog(@"\n\n\n=========Printed sucessfull in loop");
     
   //  imagetoprint=image;
-   // imagetoprint= UIImageJPEGRepresentation(baseImage, 1.0);
-   // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
+    
+    */
+    imagetoprint= UIImageJPEGRepresentation(buffer, 1.0);
+   
+ /*
+    // UIImage * newImage;//=[UIImage imageWithData:imagetoprint scale:0.50];
     //newImage=[baseImage ]
     //CIImage * image;//=CFBridgingRelease(CFBridgingRetain(baseImage));
    
    // baseImage=[UIImage imageWithCGImage:[baseImage CGImage] scale:0.2 orientation:UIImageOrientationUp];
-    imagetoprint= UIImageJPEGRepresentation(previewImage, 1.0);
+  //  imagetoprint= UIImageJPEGRepresentation(previewImage, 1.0);
     
   //  newImage=[UIImage imageWithCIImage:image scale:0.5 orientation:UIImageOrientationUp];
   //  NSData * imagetpPrinttemp=UIImageJPEGRepresentation(newImage, 1.0);
-    
+  */
     UIPrintInteractionController *pic = [UIPrintInteractionController sharedPrintController];
     
     if(pic && [UIPrintInteractionController canPrintData: imagetoprint] ) {
@@ -274,7 +371,7 @@
         void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *pic, BOOL completed, NSError *error) {
             //self.content = nil;
             if (!completed && error) {
-                NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
+                NSLog(@"FAILED! due to error in domain %@ with error code %ld", error.domain, (long)error.code);
             }else{
                 NSLog(@"\n\n\n=========Printed sucessfull in loop");
                 timer=[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(lastSegue) userInfo:nil repeats:NO];
@@ -290,10 +387,9 @@
     
     
 }
--(void)callLastSegue{
 
-    
-}
+
+
 
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -302,8 +398,8 @@
     
     CGPoint location = [touch locationInView:touch.view];
    
-        location.x=location.x ;//+ (322-249);
-        location.y=location.y - 20;//+ (315-171);
+        location.y=location.x ;//+ (322-249);
+        location.x=location.y - 20;//+ (315-171);
      NSLog(@"====x=%2f======y=%2f===",location.x,location.y);
         if (newScale>=1.10) {
             if(    (location.x > 465 && location.x < 501 )   && (location.y  < 368  &&  location.y > 288  )  ){
@@ -330,7 +426,7 @@
     
     locationForText.x +=218.00;
     locationForText.y +=101.00;
-    if(    (locationForText.x > 373 && locationForText.x < 541 )   && (locationForText.y  < 431 &&  locationForText.y > 250  )  ){
+    if(    (locationForText.x > 393 && locationForText.x < 641 )   && (locationForText.y  < 400 &&  locationForText.y > 140  )  ){
         baseViewLABEL.center=locationForText;
         NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
     }
@@ -346,58 +442,103 @@
 
 - (IBAction)Preview {
     
-   // UIImage * template=[UIImage imageNamed:@"Badge_template.png"];
+    NSLog(@"width: %f  height: %f",self.cameraImageView.frame.size.width ,self.cameraImageView.frame.size.height);
+    
+      NSLog(@"rigin X: %f  rigin Y: %f",self.cameraImageView.frame.origin.x ,self.cameraImageView.frame.origin.y);
+       NSLog(@"NEWSCALE: %f ",newScale);
+    
+    //////////////////////////////////////////////////////////////
+    _xforText=baseViewLABEL.frame.origin.x - 345;
+    _yforText=baseViewLABEL.frame.origin.y - 131;
+    rectForTextX=(_xforText + 50) * 0.90;
+    rectForTextY=(_yforText + 50) * 0.90;
+    
+    labelRectScale=labelNewScale *135;
+    fontScale=labelNewScale * 25;
+    //////////////////////////////////////////////////////////////
+    
+    UIImage * template=[UIImage imageNamed:@"squareCircle.png"];
     CGSize newSize = CGSizeMake(1024,768);
-   
     UIGraphicsBeginImageContext( newSize );
-    CGContextRef  context = UIGraphicsGetCurrentContext();
+ 
+    //  CGContextRef  context = UIGraphicsGetCurrentContext();
    
-    baseRect=CGRectMake(0, 0, 200, 200);
+    
+    /*taking the center square of the camera priveiw to print  and preview.
+    i did this by subtracting from the origin , the dispalcment in any direction and then moving the image in the preview exaxctly that many points , in case of zoom in and out the origin will change every time i do zoom in or out , so i have subtractes from self.cameraimageview.oringi.x so that it will get the new origin cordintaes every time user zooms in or out */
+   
+    
+  //  baseRect=CGRectMake( 170 + (192 - self.cameraImageView.frame.origin.x),  80 + (52 -self.cameraImageView.frame.origin.y), 300+( 640 - self.cameraImageView.frame.size.width ), 300 -(480 - self.cameraImageView.frame.size.height));
+    
+    
+    
+    baseRect=CGRectMake( 170 + (192 - self.cameraImageView.frame.origin.x)
+                        ,80 + (52 -self.cameraImageView.frame.origin.y)
+                        ,300 / newScale
+                        ,300 /newScale);
+    
     printableRect=CGRectMake(rectX,rectY,rectScale,rectScale);
     printableGrafixRect=CGRectMake(350,225, 240, 220);
     printableText=CGRectMake(rectForTextX-20, rectForTextY, labelRectScale,labelRectScale);//136*.65, 36*.65);//(0, 50, 136, 36);
     
-   // CGRect  printableRect=CGRectMake(0,0, 200, 200);
+   
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.cameraImageView.image CGImage], baseRect);
+    UIImage * image = [UIImage imageWithCGImage:imageRef];
+   
     
-    if (_colorTag==1) {
-        [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_colorTag==2){
-        [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+
+  
+    
+    
+    CGImageRelease(imageRef);
+    
+ /*  // CGRect  printableRect=CGRectMake(0,0, 200, 200);
+    
+      //  [baseYellow drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+    //    [baseWhite drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
         
-    }else if (_colorTag==3){
-        [baseRed drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+    //    [baseRed drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
         
-    }else if (_colorTag==4){
-        [baseBlue drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+    //    [baseBlue drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
         
-    }
     
     
-    if (_instrumentTag==1) {
-        [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==2){
-        [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==3){
-        [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }else if (_instrumentTag==4){
-        [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
-    }
     
-    if (_colorTag==3 || _colorTag==4) {
-        CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+      //  [GuitarImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+//        [KeyboardImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+//        [FluteImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+//        [DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+    
+
+     //   CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
         
-    }else{
-        CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
+
+    //    CGContextSetFillColorWithColor(context, [UIColor blackColor].CGColor);
         
-    }
     
     
     
-    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
+    
+ //   [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode:
      
-     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
+//     UILineBreakModeWordWrap alignment: UITextAlignmentCenter ];
     //[template  drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
     //[DhoolImage drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1.0];
+ */
+    
+    CGRect  printableRect1=CGRectMake(50,50, 300, 300);
+    
+   // [self.cameraImageView.image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [image drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    [template drawInRect:printableRect1 blendMode:kCGBlendModeNormal alpha:1.0];
+    
+    
+    
+    [ text drawInRect:printableText withFont:[UIFont fontWithName:@"Helvetica" size:fontScale ] lineBreakMode: NSLineBreakByWordWrapping alignment: NSTextAlignmentCenter ];
+    
+    
+    
+  //  buffer= UIGraphicsGetImageFromCurrentImageContext();
     
     previewImage=UIGraphicsGetImageFromCurrentImageContext();
     
@@ -409,108 +550,10 @@
     
 }
 
-- (IBAction)yellowButton {
-    NSLog(@"in COLOR");
-   baseImage=[UIImage imageNamed:@"Yellow_Display_Badge.png"];
-   [baseViewCOLOR setImage:baseImage];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    
-  //  [baseYellow drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-  //  baseImage=UIGraphicsGetImageFromCurrentImageContext();
-  //  baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-  //  [self.view addSubview:baseColor ];
-    _colorTag=1;
-    
-}
-
-- (IBAction)whiteButton {
-    NSLog(@"in COLOR");
-    baseImage=[UIImage imageNamed:@"White_Display_Badge.png"];
-    [baseViewCOLOR setImage:baseImage];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    
-   // [baseWhite drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-   // baseImage=UIGraphicsGetImageFromCurrentImageContext();
-   // baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-   // [self.view addSubview:baseColor ];
-    _colorTag=2;
-}
-
-- (IBAction)redButton {
-    NSLog(@"in COLOR");
-    baseImage=[UIImage imageNamed:@"Red_Display_Badge.png"];
-    [baseViewCOLOR setImage:baseImage];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    
-  //  [baseRed drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
- //   baseImage=UIGraphicsGetImageFromCurrentImageContext();
-  //  baseColor=[[UIImageView alloc ]initWithImage:baseImage];
- //   [self.view addSubview:baseColor ];
-    _colorTag=3;
-}
-
-- (IBAction)blueButton {
-    NSLog(@"in COLOR");
-    baseImage=[UIImage imageNamed:@"Blue_Display_Badge.png"];
-    [baseViewCOLOR setImage:baseImage];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    
-    
- //   [baseBlue drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
- //   baseImage=UIGraphicsGetImageFromCurrentImageContext();
-//    baseColor=[[UIImageView alloc ]initWithImage:baseImage];
- //   [self.view addSubview:baseColor ];
-    _colorTag=4;
-}
 
 
 
-- (IBAction)printColorLayer {
-    NSLog(@"in COLOR Print");
-    
-    /*
-    imagetoprint= UIImageJPEGRepresentation(baseImage, 1.0);
-    
-    UIPrintInteractionController *pic = [UIPrintInteractionController sharedPrintController];
-    
-    if(pic && [UIPrintInteractionController canPrintData: imagetoprint] ) {
-        
-        pic.delegate = self;
-        
-        UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-        printInfo.outputType = UIPrintInfoOutputGeneral;
-        // printInfo.jobName = [path lastPathComponent];
-        printInfo.duplex = UIPrintInfoDuplexLongEdge;
-        pic.printInfo = printInfo;
-        pic.showsPageRange = YES;
-        pic.printFormatter=[[UIViewPrintFormatter alloc] init];
-        
-        pic.printingItem = imagetoprint;
-        
-        void (^completionHandler)(UIPrintInteractionController *, BOOL, NSError *) = ^(UIPrintInteractionController *pic, BOOL completed, NSError *error) {
-            //self.content = nil;
-            if (!completed && error) {
-                NSLog(@"FAILED! due to error in domain %@ with error code %u", error.domain, error.code);
-            }
-        };
-        [pic presentAnimated:YES completionHandler:completionHandler];
-        
-    }
-   
-   */ 
-}
 
-- (IBAction)previewColorLayer {
-    NSLog(@"in COLOR preview");
-}
 - (void)viewDidUnload {
     UIGraphicsEndImageContext();
     YellowBase = nil;
@@ -531,130 +574,8 @@
 }
 
 
-- (IBAction)printGraphics {
-}
 
-- (IBAction)previewGraphics {
-}
 
-- (IBAction)Guitar {
-    
-    instrumentImage=[UIImage imageNamed:@"Guitar_Printable.png"];
-    [baseViewINSTRUMENT setImage:instrumentImage];
-    _instrumentTag=1;
-    
-   //  NSString *path = [[NSBundle mainBundle] pathForResource:@"Guitar_Printable" ofType:@"png"];
-   // UIImage  *myimg = [UIImage  imageWithContentsOfFile: path];
-   
-   // UIGraphicsEndImageContext();
-   // CGSize newSize = CGSizeMake(1024,768);
-   // UIGraphicsBeginImageContext( newSize );
-    NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-    
-    
- }
-
-- (IBAction)Keyboard {
-    instrumentImage=[UIImage imageNamed:@"Music_KeyBoard_Printable.png"];
-    [baseViewINSTRUMENT setImage:instrumentImage];
-    _instrumentTag=2;
-    
-    
-   // [KeyboardImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-   
-    /*
-    UIGraphicsEndImageContext();
-    CGSize newSize = CGSizeMake(1024,768);
-    UIGraphicsBeginImageContext( newSize );
-    
-    
-    if (_colorTag==1) {
-        [baseYellow drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [KeyboardImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==2) {
-        [baseWhite drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [KeyboardImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==3) {
-        [baseRed drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [KeyboardImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==4) {
-        [baseBlue drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [KeyboardImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }
-    
-    
-    
-    baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    [self.view addSubview:baseColor ];*/
-    NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-}
-
-- (IBAction)Flute {
-    instrumentImage=[UIImage imageNamed:@"Flute_Printable.png"];
-    [baseViewINSTRUMENT setImage:instrumentImage];
-    _instrumentTag=3;
-    
-   // [FluteImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
- /*   UIGraphicsEndImageContext();
-    CGSize newSize = CGSizeMake(1024,768);
-    UIGraphicsBeginImageContext( newSize );
-    
-    
-    if (_colorTag==1) {
-        [baseYellow drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [FluteImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==2) {
-        [baseWhite drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [FluteImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==3) {
-        [baseRed drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [FluteImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==4) {
-        [baseBlue drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [FluteImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }
-    
-    
-    
-    baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    [self.view addSubview:baseColor ];*/
-    NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-}
-
-- (IBAction)Dhool {
-    instrumentImage=[UIImage imageNamed:@"dholak_Printable1.png"];
-    [baseViewINSTRUMENT setImage:instrumentImage];
-    _instrumentTag=4;
-    
- //   [DhoolImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-  /*  UIGraphicsEndImageContext();
-    CGSize newSize = CGSizeMake(1024,768);
-    UIGraphicsBeginImageContext( newSize );
-    
-    
-    if (_colorTag==1) {
-        [baseYellow drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [DhoolImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==2) {
-        [baseWhite drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [DhoolImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==3) {
-        [baseRed drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [DhoolImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }else if (_colorTag==4) {
-        [baseBlue drawInRect:printableRect blendMode:kCGBlendModeNormal alpha:1];
-        [DhoolImage drawInRect:printableGrafixRect blendMode:kCGBlendModeNormal alpha:1];
-    }
-    
-    
-    
-    baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    [self.view addSubview:baseColor ];*/
-    NSLog(@"\nbaseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-}
 
 - (IBAction)okText {
    // resigning first responder
@@ -696,49 +617,8 @@
     NSLog(@"OK TEXT");
     
 }
-- (IBAction)okColorLayer {
-    [ColorView removeFromSuperview];
-    [self.view addSubview:firstView];
-    
-    // baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    //  baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    //  [self.view addSubview:baseColor ];
-    
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    
-    
-    
-    NSLog(@"in COLOR ok");
-}
-- (IBAction)okGraphics {
-    
-    NSLog(@"\n **OK** baseview X=%2f-----baseview Y=%2f-- ",baseViewINSTRUMENT.frame.origin.x,baseViewINSTRUMENT.frame.origin.y);
-    
-    [GraphicsView removeFromSuperview];
-    
-    // baseImage=UIGraphicsGetImageFromCurrentImageContext();
-    // baseColor=[[UIImageView alloc ]initWithImage:baseImage];
-    // [self.view addSubview:baseColor ];
-    
-    
-    [self.view addSubview:firstView];
-    [self.view addSubview:baseViewCOLOR];
-    [self.view addSubview:baseViewINSTRUMENT];
-    [self.view addSubview:baseViewLABEL];
-    touchEnabled=NO;
-    
-    _x=baseViewINSTRUMENT.frame.origin.x - 353;
-    _y=baseViewINSTRUMENT.frame.origin.y - 234;
-    NSLog(@"difference X=%2f  Y=%2f ",_x,_y);
-    rectX=_x;
-    rectY=_y;
-    NSLog(@"%d,%d",rectX,rectY);
-    
-    rectScale=newScale * 200;
-    NSLog(@"SCALE==%d===",rectScale);
-}
+
+
 - (IBAction)OK {
     
    // [textField resignFirstResponder];
@@ -784,8 +664,207 @@
     
 }
 
+//===================================CAMERA =======================
+- (void)setupCamera
+{
+    NSArray* devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+    for(AVCaptureDevice *device in devices)
+    {
+        if([device position] == AVCaptureDevicePositionBack)
+            self.device = device;
+    }
+    
+    AVCaptureDeviceInput* input = [AVCaptureDeviceInput deviceInputWithDevice:self.device error:nil];
+    AVCaptureVideoDataOutput* output = [[AVCaptureVideoDataOutput alloc] init];
+    output.alwaysDiscardsLateVideoFrames = YES;
+    
+    dispatch_queue_t queue;
+    queue = dispatch_queue_create("cameraQueue", NULL);
+    [output setSampleBufferDelegate:self queue:queue];
+    
+    NSString* key = (NSString *) kCVPixelBufferPixelFormatTypeKey;
+    NSNumber* value = [NSNumber numberWithUnsignedInt:kCVPixelFormatType_32BGRA];
+    NSDictionary* videoSettings = [NSDictionary dictionaryWithObject:value forKey:key];
+    [output setVideoSettings:videoSettings];
+    
+    self.captureSession = [[AVCaptureSession alloc] init];
+    [self.captureSession addInput:input];
+    [self.captureSession addOutput:output];
+    [self.captureSession setSessionPreset:AVCaptureSessionPresetPhoto];
+    
+    //  NSString *const AVCaptureSessionPreset352x288;
+    _captureSession.sessionPreset = AVCaptureSessionPreset640x480;
+    
+    self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
+    self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    
+    // CHECK FOR YOUR APP
+    self.previewLayer.frame = CGRectMake(192,52, 640 , 480);
+    
+    
+    self.previewLayer.connection.videoOrientation=AVCaptureVideoOrientationLandscapeRight;
+    
+    
+    
+    /*
+     ///// menu layer ontop of the cameraview layer
+     CALayer *theLayer = [CALayer layer];
+     //  [[[self view] layer] addSublayer:theLayer];
+     theLayer.contents = (id)[[UIImage imageNamed:@"camera screen black.png"] CGImage];
+     theLayer.contentsCenter = CGRectMake(0.0f, 0.0f, 300.0f, 1024);
+     theLayer.bounds = CGRectMake(200.0f, 0.0f, 768.0f, 1024.0f);
+     theLayer.position = self.view.center;
+     //  theLayer.contentsScale = 5.0f;
+     ////////////////////////////////////
+     */
+    
+    /*  CALayer *HW = [CALayer layer];
+     //   [[[self view]layer]addSublayer:HW];
+     HW.contents = (id)[[UIImage imageNamed:@"face outline.png"]CGImage];
+     HW.contentsCenter = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
+     HW.bounds = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
+     HW.position = CGPointMake(385, 508);
+     
+     */
+    
+    /*
+     CALayer *redband = [CALayer layer];
+     //   [[[self view]layer]addSublayer:redband];
+     redband.contents = (id)[[UIImage imageNamed:@"left red band.png"]CGImage];
+     redband.contentsCenter = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
+     redband.bounds = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
+     redband.position = CGPointMake(384, 510);
+     */
+    [self.view.layer insertSublayer:self.previewLayer atIndex:1];   // Comment-out to hide preview layer
+    //  [self.view.layer insertSublayer:theLayer above:self.previewLayer];
+    //  [self.view.layer insertSublayer:HW above:self.previewLayer];
+    //  [self.view.layer insertSublayer:redband above:self.previewLayer];
+    
+    
+    [self.captureSession startRunning];
+}
+
+- (IBAction)Capture:(id)sender {
+    
+    /*  CIImage* image = [CIImage imageWithCGImage:(__bridge CGImageRef)(self.cameraImage)];
+     CIDetector* detector = [CIDetector detectorOfType:CIDetectorTypeFace
+     context:nil options:[NSDictionary dictionaryWithObject:CIDetectorAccuracyHigh forKey:CIDetectorAccuracy]];
+     NSArray* features = [detector featuresInImage:image];
+     
+     for(CIFaceFeature* faceFeature in features)
+     {
+     UIView* faceView = [[UIView alloc] initWithFrame:faceFeature.bounds];
+     faceView.layer.borderWidth = 1;
+     faceView.layer.borderColor = [[UIColor redColor] CGColor];
+     //    [self.cameraImage addSubview:faceView];
+     
+     // CGRect biggerRectangle = CGRectInset(faceFeature.bounds, 200, 200);
+     // CGImageRef imageRef = CGImageCreateWithImageInRect((__bridge CGImageRef)(image) , biggerRectangle);
+     
+     // cropping the face
+     CGImageRef imageRef = CGImageCreateWithImageInRect((__bridge CGImageRef)(image), faceFeature.bounds);
+     [self.cameraImageView setImage:[UIImage imageWithCGImage:imageRef]];
+     CGImageRelease(imageRef);
+     }*/
+    
+
+    
+//    UIImage *cameraScreenReplace = [UIImage imageNamed:@"camera screen new.png"];
+//    [CameraScreenReplace setImage:cameraScreenReplace];
+//    
+   
+    [self.captureSession stopRunning];
+   
+    
+    CGRect A=CGRectMake(192,52, 640 , 480);
+    self.cameraImageView.image = self.cameraImage;
+    self.cameraImageView.frame=A;
+   // self.cameraImageView.image = self.cameraImage;
+    // self.TestImage.image=self.cameraImage;
+    
+    NSLog(@"%f , %f",self.cameraImage.size.height,self.cameraImage.size.width);
+    
+    _cameraImageView.userInteractionEnabled = YES;
+    
+    /*   UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panDetected:)];
+     [cameraImageView addGestureRecognizer:panRecognizer];
+     
+     UIPinchGestureRecognizer *pinchRecognizer = [[UIPinchGestureRecognizer  alloc] initWithTarget:self action:@selector(pinchDetected:)];
+     [cameraImageView addGestureRecognizer:pinchRecognizer];   */
+    
+   // CGSize newSize = CGSizeMake(1024,768);
+    
+  //  UIGraphicsBeginImageContext( newSize );
+//CGContextRef  context = UIGraphicsGetCurrentContext();
+    
+  //  CGRect baseRect=CGRectMake(450, 450, 300, 300);
+    
+    // [self.cameraImage drawInRect:baseRect blendMode:kCGBlendModeNormal alpha:1.0];
+  //  CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+    
+ //   self.TestImage.image=UIGraphicsGetImageFromCurrentImageContext();
+    
+    // [previewView setImage:previewImage];
+    //  [self.view addSubview:previewView];
+    
+    if (self.cameraImageView.image==NULL) {
+        NSLog(@"self.cameraimageview is NULL");
+    }else{
+        
+        NSLog(@"Is not Null");
+    }
+    
+    
+    selfCamerImageViewOriginXValueAfterZooButtonPressedX=self.cameraImageView.frame.origin.x;
+    selfCamerImageViewOriginXValueAfterZooButtonPressedY=self.cameraImageView.frame.origin.y;
+    
+    _x = self.cameraImageView.center.x;
+    _y=self.cameraImageView.center.y;
+    
+    UIGraphicsEndImageContext();
+}
+
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+{
+    CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+    CVPixelBufferLockBaseAddress(imageBuffer,0);
+    uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer);
+    size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer);
+    size_t width = CVPixelBufferGetWidth(imageBuffer);
+    size_t height = CVPixelBufferGetHeight(imageBuffer);
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+    CGImageRef newImage = CGBitmapContextCreateImage(newContext);
+    
+    CGContextRelease(newContext);
+    CGColorSpaceRelease(colorSpace);
+    
+    self.cameraImage = [UIImage imageWithCGImage:newImage scale:1.0f orientation:UIImageOrientationUp];
+    
+    CGImageRelease(newImage);
+    
+    CVPixelBufferUnlockBaseAddress(imageBuffer,0);
+}
 
 
 
+
+//=================================================================
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    if (buffer) {
+    PreviewScreenViewController * Pvc = [segue destinationViewController];
+    Pvc.previewImage=buffer;
+    }
+    // Pass the selected object to the new view controller.
+}
 
 @end
