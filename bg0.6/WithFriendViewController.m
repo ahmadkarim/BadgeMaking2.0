@@ -32,6 +32,8 @@
 	// Do any additional setup after loading the view.
     
     checkForPrintButton=0;
+    intForYLeft=0;
+    intForYRight=0;
     
     [self setupCamera];
     
@@ -81,16 +83,44 @@
 
 - (IBAction)ZoomIn:(UIButton *)sender {
     
-    newScale += 0.1 ;
-    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
-    self.cameraImageView.transform=transform;
+    if (checkForPrintButton==1) {
+        
+        newScale += 0.1 ;
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+        leftCrop.transform=transform;
+        
+    }else if (checkForPrintButton==2){
+        
+         newScale += 0.1 ;
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+        rightCrop.transform=transform;
+        
+        
+    }
 }
 
 - (IBAction)ZoomOut:(UIButton *)sender {
     
-    newScale -= 0.1 ;
-    CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
-    self.cameraImageView.transform=transform;
+   
+    
+    if (checkForPrintButton==1) {
+        
+        newScale -= 0.1 ;
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+        leftCrop.transform=transform;
+        
+    }else if (checkForPrintButton==2){
+        
+         newScale -= 0.1 ;
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale,newScale);
+        rightCrop.transform=transform;
+        
+        
+    }
+    
+    
+    
+    
 }
 
 
@@ -141,12 +171,18 @@
     
   
     if (checkForPrintButton==1) {
+            
+
+    
+        intForYLeft-=10;
+        
         
          _y -= 10;
         leftCrop.center=CGPointMake(leftCrop.center.x,_y);
         
     }else if (checkForPrintButton==2){
         
+        intForYRight-=10;
         
        _y1 -= 10;
         rightCrop.center=CGPointMake(rightCrop.center.x,_y1);
@@ -165,13 +201,13 @@
 - (IBAction)DownButton:(UIButton *)sender {
     
     if (checkForPrintButton==1) {
-        
+        intForYLeft += 10;
         _y += 10;
         leftCrop.center=CGPointMake(leftCrop.center.x,_y);
         
     }else if (checkForPrintButton==2){
         
-        
+        intForYRight += 10;
         _y1 += 10;
         rightCrop.center=CGPointMake(rightCrop.center.x,_y1);
         
@@ -640,17 +676,22 @@
     
 }
 
-
+//merge method
 -(IBAction)Test2Method:(id)sender{
     
     CGSize newSize = CGSizeMake(1024,768);
     UIGraphicsBeginImageContext( newSize );
     
-    
-    CGRect baseRectF1=CGRectMake(_x-100, 0, 320, 480);
+    //Adjustment for X axis
+    CGRect baseRectF1=CGRectMake(_x-100, intForYRight, 320, 480);
+    ///////////////////////////////////////////////////////////
     CGRect baseRectF2=CGRectMake(_x1-320, 0, 320, 480);
     
-    CGRect printableRect1=CGRectMake(_x-100 ,0, 320, 480);
+    
+    //Adjustment for X axis
+    CGRect printableRect1=CGRectMake(_x-100 ,intForYLeft, 320, 480);
+    ///////////////////////////////////////////////////////////
+
     CGRect printableRect2=CGRectMake(_x1-320 ,0, 320, 480);
     
     CGImageRef imageRef = CGImageCreateWithImageInRect([buffer CGImage], baseRectF1);

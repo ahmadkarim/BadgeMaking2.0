@@ -184,11 +184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "429522187.04585"
+            timestampString = "431110270.376335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "-pinchDetected:"
             landmarkType = "5">
          </BreakpointContent>
@@ -262,11 +262,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "431102425.643475"
+            timestampString = "431110935.146465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "759"
-            endingLineNumber = "759"
+            startingLineNumber = "795"
+            endingLineNumber = "795"
             landmarkName = "-setupCamera"
             landmarkType = "5">
          </BreakpointContent>
@@ -278,11 +278,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "bg0.6/WithFriendViewController.m"
-            timestampString = "431102425.643475"
+            timestampString = "431110935.146465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "758"
-            endingLineNumber = "758"
+            startingLineNumber = "794"
+            endingLineNumber = "794"
             landmarkName = "-setupCamera"
             landmarkType = "5">
          </BreakpointContent>

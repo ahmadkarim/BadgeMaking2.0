@@ -57,6 +57,9 @@ UIPrintInteractionControllerDelegate,UITextFieldDelegate,AVCaptureVideoDataOutpu
     
     CGRect baseRect;
     
+    int intForYLeft;
+    int intForYRight;
+    
     int _colorTag;
     int _instrumentTag;
     float _x,_y,_xforText,_yforText,_x1,_y1;
